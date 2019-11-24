@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/introduction/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/introduction/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/introduction/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/io-redirection/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/io-redirection/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/io-redirection/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/reference/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/reference/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/reference/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/reference/io-redirection/</loc>
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/shell-pipelines/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/shell-pipelines/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/shell-pipelines/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/categories/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/credits/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/credits/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/credits/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/tags/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/tags/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/tags/"
+                />
+  </url>
+  
+</urlset>

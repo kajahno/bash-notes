@@ -1,0 +1,64 @@
+[
+{
+	"uri": "https://kajahno.me/bash-notes/es/basics/",
+	"title": "Conocimiento básico",
+	"tags": [],
+	"description": "",
+	"content": " Capítulo 1 "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/basics/introduction/",
+	"title": "Introducción",
+	"tags": [],
+	"description": "",
+	"content": " La GNU Bourne-Again SHell es una shell muy pupular ya que combina funcionalidades tanto para uso interactive y programático.\nOtras shells  C shell - csh KornShell - ksh Bourne shell - sh Z shell - zsh en combinación con Oh-my-zsh Debian Almquist shell - dash  ¿Qué es una \u0026lsquo;shell\u0026rsquo; entonces? Es un programa el cual recibe como entrada lo que se escribe en el teclado, y redirecciona dicha entrada hacia el sistema operativo. Fue la primera clase de interfaces de usuario usada en sistemas operativos.\n¿Qué es una \u0026lsquo;terminal [emulador]\u0026lsquo;? How en día, gran mayoria de los sistemas operativos proveen una Interfaz Gráfica de Usuario (GUI). Un emulador de terminal es un programa que hace posible la interaccion con una shell. Ejemplos de emuladores de terminal incluyen: gnome-terminal, terminator.\nIniciar bash Asumiendo que estás en un sistema operativo que tiene una GUI, basta con abrir tu emulador de terminal favorito y escribit lo siguiente:\n$ bash  Imprimir la versión de bash:\n$ bash --version GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu) Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later \u0026lt;http://gnu.org/licenses/gpl.html\u0026gt; This is free software; you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.  Modos de ejecución En bash se puede ya se escribir y ejecutar los comandos inmediatamente (modo interactivo), o incluir los comandos en un archivo de texto y ejecutarlos en modo batch (tambien conocido como bash script).\nModo interactivo Imprime el directorio actual:\n$ pwd /home/vagrant  Lista los archivos y directorios en el directorio actual:\n$ ls  Modo no-interactivo (bash script) Crea un archivo de texto (llamado myfile) y escribe el siguiente contenido dentro:\npwd ls  Ejecuta el fichero con la lista de comandos usando bash\n$ bash myfile /home/vagrant myfile  "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/basics/io-redirection/",
+	"title": "IO Redirection",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/basics/shell-pipelines/",
+	"title": "IO Redirection",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/reference/",
+	"title": "Lista de comandos",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/credits/",
+	"title": "Crédits",
+	"tags": [],
+	"description": "",
+	"content": " Generación de esta página  Hugo Hugo Theme Learn  "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/",
+	"title": "Notas de bash",
+	"tags": [],
+	"description": "",
+	"content": " Notas de Bash El presente es un conjunto de notas relacionadas con GNU bash. De ninguna manera esta será una lista completa de todas las funcionalidades que bash posee, sin embargo iré manteniendo la documentation de vez en cuando de manera que se mantenga mas actualizada posible.\nContribuye a esta documentación Siéntete libre de actualizar este contenido, solo basta por hacer click en Edit this page en el enlace mostrado arriba a la derecha de cualquier página, y crea un Pull Request en Github. De manera similar, si no quieres hacer un Pull Request y sólamente quieres indicar cambios, puedes crear un issue en Github y en algun momento será tomada en cuenta.\n"
+},
+{
+	"uri": "https://kajahno.me/bash-notes/es/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

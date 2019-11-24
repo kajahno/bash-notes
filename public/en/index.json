@@ -1,0 +1,71 @@
+[
+{
+	"uri": "https://kajahno.me/bash-notes/en/basics/",
+	"title": "Basics",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 1 Basics Covers the fundamental concepts used when working within bash (applicable to other shells)\n"
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/basics/introduction/",
+	"title": "Introduction",
+	"tags": [],
+	"description": "",
+	"content": " The GNU Bourne-Again SHell is a very popular shell that combines functionalities for both programming and interactive use.\nOther shells  C shell - csh KornShell - ksh Bourne shell - sh Z shell - zsh with Oh-my-zsh Debian Almquist shell - dash  What is a \u0026lsquo;shell\u0026rsquo; then? It\u0026rsquo;s a program that receives input from the keyboard and forwards them to the operating system. It was the first kind of user interface used.\nWhat is a \u0026lsquo;terminal [emulator]\u0026lsquo;? Nowadays, most operating systems provide a Graphical User Interface (GUI). A terminal emulator is a program that lets you interact with a shell. Examples include: gnome-terminal, terminator.\nStarting bash Assumming you\u0026rsquo;re in an operating system that has a GUI, just open your favorite terminal emulator and type:\n$ bash  Printing the version of bash:\n$ bash --version GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu) Copyright (C) 2013 Free Software Foundation, Inc. License GPLv3+: GNU GPL version 3 or later \u0026lt;http://gnu.org/licenses/gpl.html\u0026gt; This is free software; you are free to change and redistribute it. There is NO WARRANTY, to the extent permitted by law.  Modes of execution In bash you can either type commands and run them immediately (interactive), or place them in a file and then run as a batch of commands (also known as a bash script)\nInteractive Print the working directory:\n$ pwd /home/vagrant  list the files and directories in current directory:\n$ ls  Non-interactive (bash script) Create a file (named myfile) and place the following content in it:\npwd ls  Run that file using bash\n$ bash myfile /home/vagrant myfile  "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/basics/io-redirection/",
+	"title": "IO Redirection",
+	"tags": [],
+	"description": "",
+	"content": " graph LR; inp[stdin] -- p(program) p -- stdout[stdout] p -- stderr[stderr] classDef middle stroke:#333,stroke-width:4px; classDef edge fill:#fff,stroke:#333,stroke-width:0px; class p middle; class inp edge; class stdout edge; class stderr edge;  By convention any shell opens three file descriptors when a program is run:\n Standard input (stdin): feeds the program with data Standard output (stdout): normally prints messages in the terminal Standard error (stderr): normally prints error messages in the terminal (when things fail)  These three file descriptors are referred as non-negative integers (defined by the POSIX standard):\n stdin: 0 stdout: 1 (this is the default) stderr: 2  A very powerful feature of bash (and other shells) is input and output redirection. If no redirection is specified, by default all three file descriptors are connected to the terminal (so the information will be displayed)\nRun program with no redirection $ ls -l total 4 -rw-rw-r-- 1 vagrant vagrant 7 Nov 24 13:20 myfile  Redirect standard output $ ls -l 1\u0026gt; output  As you see, nothing was printed. The output has been redirected to the file output. If we print the content of this file we\u0026rsquo;ll see that indeed the output is there:\n$ cat output total 4 -rw-rw-r-- 1 vagrant vagrant 7 Nov 24 13:20 myfile  Since the file descriptor 1 is the default file descriptor in bash, we can simple run the following and achieve the same result:\n$ ls -l \u0026gt;output $ cat output total 4 -rw-rw-r-- 1 vagrant vagrant 7 Nov 24 13:20 myfile  Redirect standard error To redirect the standard error, we first need to create an error:\n$ ls --bad-usage ls: unrecognized option '--bad-usage' Try 'ls --help' for more information.  As you see, that option --bad-usage doesn\u0026rsquo;t really form part of the command ls. However, because by default everything is redirected to the terminal, we also see the stderr output.\nLet\u0026rsquo;s redirect that to a new file:\n$ ls --bad-usage 2\u0026gt; error_output  Notice how there was nothing printed to the terminal, however by inspecting the content of the file we can confirm that indeed we have successfully redirected stderr:\n$ cat error_output ls: unrecognized option '--bad-usage' Try 'ls --help' for more information.  Redirect stdout and stderr We can combine both output redirections in a single line:\n$ ls -l output non-existing-file \u0026gt;newoutput 2\u0026gt;newerr  Nothing will get printed in the terminal. However by inspecting the content of those two new files newoutput and newerr we can confirm that the redirection took place:\n$ cat newoutput -rw-rw-r-- 1 vagrant vagrant 110 Nov 24 14:14 output $ cat newerr ls: cannot access 'non-existing-file': No such file or directory  Combine stdout and stderr Sometimes is pretty convenient to redirect both stdout and stderr a single file. This can be achieved with:\n$ ls -l output non-existing-file \u0026gt;combined-output 2\u0026gt;\u0026amp;1  In this case we are explicitly telling bash to combine (or pipe) stderr into stdout. Inspecting the new file:\n$ cat combined-output ls: cannot access 'non-existing-file': No such file or directory -rw-rw-r-- 1 vagrant vagrant 110 Nov 24 14:14 output  A shorthand for this syntax is: ls -l output non-existing-file \u0026amp;\u0026gt;combined-output\n Redirect stdin For this we need to make sure the program we use supports stdin.\nThe program wc prints words, lines, and the byte count of the specified input. For example:\n$ wc combined-output 2 18 118 combined-output  wc is using the input file specified as argument. Running wc with no arguments, and typing manually:\n$ wc this is a test second line [CRTL+d] 2 6 27  Will produce the output base on what was specified in stdin. We use CRTL+d to indicate the end of input. In this occasion, of course, wc is reading directly from stdin.\nNow if we were to redirect stdin, and specify a file as input instead of manually typing the content, we can by running:\n$ wc \u0026lt;combined-output 2 18 118  Redirect stdin with a heredoc When redirecting stdin we also have a way to explicitly specify the input, with a custom delimiter (not the interactive CTRL-d)\nThis can be achieved with the following:\n$ wc \u0026lt;\u0026lt;delimiter \u0026gt; this is a test \u0026gt; with a custom delimiter \u0026gt; delimiter 2 8 39  In this case the delimiter will only act as such if it\u0026rsquo;s the only word in a line of input. This way of redirecting is called here document or heredoc.\n"
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/reference/",
+	"title": "Command reference",
+	"tags": [],
+	"description": "",
+	"content": " Chapter 2 Command reference Covers a list of commands and what they do\n io-redirection   "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/reference/io-redirection/",
+	"title": "io-redirection",
+	"tags": [],
+	"description": "",
+	"content": "Commands related to input and output\n   Command Description     PROGRAM \u0026gt;stdout redirect standard output of program to file stdout   PROGRAM 2\u0026gt;stderr redirect standard error output of program to file stderr   PROGRAM \u0026gt;combined 2\u0026gt;\u0026amp;1 redirect stderr and stdout outputs of program to file combined   PROGRAM \u0026amp;\u0026gt;combined redirect stderr and stdout outputs of program to file combined   PROGRAM \u0026lt; combined reads file combined and sends it as input to the program    "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/basics/shell-pipelines/",
+	"title": "Shell Pipelines",
+	"tags": [],
+	"description": "",
+	"content": " graph LR; stdout1 -- PIPE -- inp2 subgraph program one inp1[stdin] -- p1(program) p1 -- stdout1[stdout] p1 -- stderr1[stderr] stderr1 -. optional .- stdout1 end subgraph program two inp2[stdin] -- p2(program) p2 -- stdout2[stdout] p2 -- stderr2[stderr] end classDef middle stroke:#333,stroke-width:4px; classDef edge fill:#ffffde,stroke:#333,stroke-width:0px; class p middle; class inp1 edge; class inp2 edge; class stdout1 edge; class stderr1 edge; class stdout2 edge; class stderr2 edge;  Some shells such as bash provide the ability of chaining program commands together. The way it works is that the standard output of one program as input to another program, all chained together by using the pipe (|) character.\nPrint content of a file and calculate word count This can be done with the following command:\n$ cat ~/.profile | wc 20 99 655  As we see, the output of the file ~/.profile has been redirected as input to the program wc\nList files redirecting stderr and calculate word count $ ls combined-output non-existent 2\u0026gt;\u0026amp;1 | wc -l 2  Regardless of both files existing or not, our output will show the same count since we have redirected stderr to stdout.\n"
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/",
+	"title": "Bash notes",
+	"tags": [],
+	"description": "",
+	"content": " Bash notes This will be a set of notes related to GNU bash. By no means this will be a complete showcase of all the features bash has to offer, however I will be updating this documentation from time to time to make it as more accurate as possible.\nContribute to this documentation Feel free to update this content, just click the Edit this page link displayed on top right of each page, and pullrequest it. Similarly if you want to indicate some changes, feel free to open an issue about it.\n"
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/categories/",
+	"title": "Categories",
+	"tags": [],
+	"description": "",
+	"content": ""
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/credits/",
+	"title": "Credits",
+	"tags": [],
+	"description": "",
+	"content": " Site generator  Hugo Hugo Theme Learn  "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/tags/",
+	"title": "Tags",
+	"tags": [],
+	"description": "",
+	"content": ""
+}]

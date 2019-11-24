@@ -1,0 +1,61 @@
+baseURL = "https://kajahno.me/bash-notes/"
+languageCode = "en-us"
+defaultContentLanguage = "en"
+defaultContentLanguageInSubdir= true
+
+
+title = "Bash notes"
+theme = "hugo-theme-learn"
+
+[params]
+themeVariant = "green"
+
+[outputs]
+home = [ "HTML", "RSS", "JSON"]
+
+
+[Languages]
+[Languages.en]
+title = "Bash notes"
+weight = 1
+languageName = "English"
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://github.com/kajahno/bash-notes"
+weight = 10
+
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bookmark'></i> Hugo Documentation"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 20
+
+[[Languages.en.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
+url = "/credits"
+weight = 30
+
+[Languages.es]
+title = "Documentación del tema Hugo Learn"
+weight = 2
+languageName = "Español"
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fab fa-fw fa-github'></i> GitHub repo"
+identifier = "ds"
+url = "https://github.com/kajahno/bash-notes"
+weight = 10
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bookmark'></i> Documentation Hugo"
+identifier = "hugodoc"
+url = "https://gohugo.io/"
+weight = 20
+
+[[Languages.es.menu.shortcuts]]
+name = "<i class='fas fa-fw fa-bullhorn'></i> Créditos"
+url = "/credits"
+weight = 30
