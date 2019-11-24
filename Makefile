@@ -1,4 +1,4 @@
-BUILDDIR      = public
+BUILDDIR      = docs
 CURRENT_DATE  ?= date -u "+%b %d, %Y"
 
 clean:
@@ -9,7 +9,7 @@ build: clean
 	${INFO} "Building project..."
 	# sed 's/PLC_LAST_UPDATED/$(shell $(CURRENT_DATE))/g' $(SOURCEDIR)/_themes/sphinx_rtd_theme/footer.html.template > $(SOURCEDIR)/_themes/sphinx_rtd_theme/footer.html
 	# sed 's/PLC_LAST_UPDATED/$(shell $(CURRENT_DATE))/g' $(SOURCEDIR)/_themes/sphinx_rtd_theme/layout.html.template > $(SOURCEDIR)/_themes/sphinx_rtd_theme/layout.html
-	@hugo
+	@hugo --destination $(BUILDDIR)
 	${INFO} "Build finished"
 
 serve:
@@ -18,7 +18,7 @@ serve:
 
 test:
 	${INFO} "Running html tests..."
-	@./bin/htmltest public
+	@./bin/htmltest $(BUILDDIR)
 
 .PHONY: help Makefile clean build serve test
 
