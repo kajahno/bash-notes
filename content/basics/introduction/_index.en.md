@@ -66,7 +66,7 @@ ls
 
 Run that file using bash
 ```bash
-$ bash myfile 
+$ bash myfile
 /home/vagrant
 myfile
 ```
