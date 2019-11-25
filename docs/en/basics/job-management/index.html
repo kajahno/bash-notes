@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>io-redirection :: Bash notes</title>
+    <title>Job Management :: Bash notes</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1574724835" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/en/reference/io-redirection/">
+  <body class="" data-url="/bash-notes/en/basics/job-management/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -180,8 +180,8 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/job-management/" title="Job Management" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/en/basics/job-management/">
@@ -235,7 +235,7 @@
   
     
     <li data-nav-id="/bash-notes/en/reference/" title="Command reference" class="dd-item 
-        parent
+        
         
         
         ">
@@ -262,8 +262,8 @@
   
     
     <li data-nav-id="/bash-notes/en/reference/io-redirection/" title="io-redirection" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/bash-notes/en/reference/io-redirection/">
@@ -329,10 +329,22 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/reference/io-redirection/" selected>English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/job-management/" selected>English</option>
                     
                   
               
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/job-management/">Español</option>
+                    
                   
               
           
@@ -429,7 +441,7 @@
             
           
           
-            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/reference/'>Command reference</a> > io-redirection
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Job Management
           
          
           
@@ -442,7 +454,14 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#send-jobs-to-the-background">Send jobs to the background</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -458,7 +477,7 @@
           
             <h1>
               
-              io-redirection
+              Job Management
             </h1>
           
 
@@ -467,43 +486,46 @@
 
 
 
-	<p>Commands related to input and output</p>
+	
 
-<table>
-<thead>
-<tr>
-<th align="left">Command</th>
-<th align="left">Description</th>
-</tr>
-</thead>
+<p>When running programs in bash, it&rsquo;s possible to do it in a &lsquo;detached&rsquo; mode. That is, sending the job to the background and continuing using the terminal</p>
 
-<tbody>
-<tr>
-<td align="left">PROGRAM &gt;stdout</td>
-<td align="left">redirect standard output of program to file <code>stdout</code></td>
-</tr>
+<p>In order to prepare for this, let&rsquo;s create the plain file <code>long-time</code> with the following content in it:</p>
 
-<tr>
-<td align="left">PROGRAM 2&gt;stderr</td>
-<td align="left">redirect standard error output of program to file <code>stderr</code></td>
-</tr>
+<pre><code class="language-bash">echo 'process started'
+sleep 60 #time in seconds
+echo 'process ended'
+</code></pre>
 
-<tr>
-<td align="left">PROGRAM &gt;combined 2&gt;&amp;1</td>
-<td align="left">redirect stderr and stdout outputs of program to file <code>combined</code></td>
-</tr>
+<p>You can run this file by doing:</p>
 
-<tr>
-<td align="left">PROGRAM &amp;&gt;combined</td>
-<td align="left">redirect stderr and stdout outputs of program to file <code>combined</code></td>
-</tr>
+<pre><code class="language-bash">$ bash long-time
+</code></pre>
 
-<tr>
-<td align="left">PROGRAM &lt; combined</td>
-<td align="left">reads file <code>combined</code> and sends it as input to the program</td>
-</tr>
-</tbody>
-</table>
+<p>The downside is that it will take around 60 seconds, time in which the terminal will be busy and cannot be used.</p>
+
+<h2 id="send-jobs-to-the-background">Send jobs to the background</h2>
+
+<p>Just append an ampersand to the end of the command:</p>
+
+<pre><code class="language-bash">$ bash long-time &amp;
+[1] 1718
+</code></pre>
+
+<p>The good thing is that now we can keep using the terminal since the job is executing in the background. This can be confirmed by running:</p>
+
+<pre><code class="language-bash">$ jobs
+[1]+  Running                 bash long-time &amp;
+</code></pre>
+
+<p>Something you&rsquo;ll notice is that even though the program is running in the background, the output is being redirected to the terminal. Of course, we can redirect it as well.</p>
+
+<p>Similarly we can end or kill jobs that are in the background, as follows:</p>
+
+<pre><code class="language-bash">$ kill %1
+$
+[1]+  Terminated              bash long-time
+</code></pre>
 
 
 
@@ -544,8 +566,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -561,6 +581,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -610,6 +633,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -617,6 +641,28 @@
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -631,26 +677,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -660,7 +686,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -685,10 +710,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/bash-notes/en/reference/" title="Command reference"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/bash-notes/en/basics/shell-pipelines/" title="Shell Pipelines"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/bash-notes/en/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/bash-notes/en/basics/bash-options/" title="Bash options" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

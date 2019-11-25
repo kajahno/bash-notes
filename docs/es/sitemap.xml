@@ -31,6 +31,20 @@
   </url>
   
   <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/bash-options/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/bash-options/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/bash-options/"
+                />
+  </url>
+  
+  <url>
     <loc>https://kajahno.me/bash-notes/es/basics/io-redirection/</loc>
     <xhtml:link
                 rel="alternate"
@@ -41,6 +55,20 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://kajahno.me/bash-notes/es/basics/io-redirection/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/job-management/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/job-management/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/job-management/"
                 />
   </url>
   

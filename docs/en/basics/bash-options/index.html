@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>io-redirection :: Bash notes</title>
+    <title>Bash options :: Bash notes</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1574724835" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/en/reference/io-redirection/">
+  <body class="" data-url="/bash-notes/en/basics/bash-options/">
     <nav id="sidebar" class="">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -204,8 +204,8 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/bash-options/" title="Bash options" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/en/basics/bash-options/">
@@ -235,7 +235,7 @@
   
     
     <li data-nav-id="/bash-notes/en/reference/" title="Command reference" class="dd-item 
-        parent
+        
         
         
         ">
@@ -262,8 +262,8 @@
   
     
     <li data-nav-id="/bash-notes/en/reference/io-redirection/" title="io-redirection" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/bash-notes/en/reference/io-redirection/">
@@ -329,10 +329,22 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/reference/io-redirection/" selected>English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/bash-options/" selected>English</option>
                     
                   
               
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/bash-options/">Español</option>
+                    
                   
               
           
@@ -429,7 +441,7 @@
             
           
           
-            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/reference/'>Command reference</a> > io-redirection
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Bash options
           
          
           
@@ -442,7 +454,15 @@
                 
                     <div class="progress">
     <div class="wrapper">
-
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#check-for-syntax-validity">Check for syntax validity</a></li>
+<li><a href="#output-commands-as-they-re-being-read">Output commands as they&rsquo;re being read</a></li>
+</ul></li>
+</ul>
+</nav>
     </div>
 </div>
 
@@ -458,7 +478,7 @@
           
             <h1>
               
-              io-redirection
+              Bash options
             </h1>
           
 
@@ -467,43 +487,69 @@
 
 
 
-	<p>Commands related to input and output</p>
+	
 
-<table>
-<thead>
-<tr>
-<th align="left">Command</th>
-<th align="left">Description</th>
-</tr>
-</thead>
+<p>Running a bash script has some interesting options that are worth mentioning. Let&rsquo;s explore them here.</p>
 
-<tbody>
-<tr>
-<td align="left">PROGRAM &gt;stdout</td>
-<td align="left">redirect standard output of program to file <code>stdout</code></td>
-</tr>
+<p>In order to prepare for this, let&rsquo;s create the plain file <code>script1</code> with the following content in it:</p>
 
-<tr>
-<td align="left">PROGRAM 2&gt;stderr</td>
-<td align="left">redirect standard error output of program to file <code>stderr</code></td>
-</tr>
+<pre><code class="language-bash">echo 'process started'
+ls non-existing
+sleep 10 #time in seconds
+touch somefile
+ls -l somefile
+echo 'process ended'
+</code></pre>
 
-<tr>
-<td align="left">PROGRAM &gt;combined 2&gt;&amp;1</td>
-<td align="left">redirect stderr and stdout outputs of program to file <code>combined</code></td>
-</tr>
+<h2 id="check-for-syntax-validity">Check for syntax validity</h2>
 
-<tr>
-<td align="left">PROGRAM &amp;&gt;combined</td>
-<td align="left">redirect stderr and stdout outputs of program to file <code>combined</code></td>
-</tr>
+<pre><code class="language-bash">$ bash -n script1
+</code></pre>
 
-<tr>
-<td align="left">PROGRAM &lt; combined</td>
-<td align="left">reads file <code>combined</code> and sends it as input to the program</td>
-</tr>
-</tbody>
-</table>
+<p>When nothing is printed, the syntax is fine</p>
+
+<h2 id="output-commands-as-they-re-being-read">Output commands as they&rsquo;re being read</h2>
+
+<p>Using verbose flag:</p>
+
+<pre><code class="language-bash">$ bash -v script1
+echo 'process started'
+process started
+ls non-existing
+ls: cannot access 'non-existing': No such file or directory
+sleep 10 #time in seconds
+touch somefile
+ls -l somefile
+-rw-rw-r-- 1 vagrant vagrant 0 Nov 24 23:06 somefile
+echo 'process ended'
+process ended
+</code></pre>
+
+
+<div class="notices note" ><p>Notice how the comment is also being printed</p>
+</div>
+
+
+<p>Using the <code>-x</code> flag:</p>
+
+<pre><code class="language-bash">$ bash -x script1
++ echo 'process started'
+process started
++ ls non-existing
+ls: cannot access 'non-existing': No such file or directory
++ sleep 10
++ touch somefile
++ ls -l somefile
+-rw-rw-r-- 1 vagrant vagrant 0 Nov 24 23:08 somefile
++ echo 'process ended'
+process ended
+</code></pre>
+
+<p>It shows every line being executed. Also arguably more readable than a plain <code>-v</code>.
+
+<div class="notices note" ><p>Notice how the comment is being ignored</p>
+</div>
+</p>
 
 
 
@@ -544,8 +590,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -561,6 +605,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -626,6 +673,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -645,6 +693,8 @@
             
                 
                     
+                        
+                        
                     
                 
                 
@@ -660,7 +710,6 @@
             
             
                 
-                    
                     
                 
                 
@@ -685,10 +734,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/bash-notes/en/reference/" title="Command reference"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/bash-notes/en/basics/job-management/" title="Job Management"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/bash-notes/en/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/bash-notes/en/reference/" title="Command reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

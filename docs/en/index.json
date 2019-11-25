@@ -42,6 +42,20 @@
 	"content": " graph LR; stdout1 -- PIPE -- inp2 subgraph program one inp1[stdin] -- p1(program) p1 -- stdout1[stdout] p1 -- stderr1[stderr] stderr1 -. optional .- stdout1 end subgraph program two inp2[stdin] -- p2(program) p2 -- stdout2[stdout] p2 -- stderr2[stderr] end classDef middle stroke:#333,stroke-width:4px; classDef edge fill:#ffffde,stroke:#333,stroke-width:0px; class p middle; class inp1 edge; class inp2 edge; class stdout1 edge; class stderr1 edge; class stdout2 edge; class stderr2 edge;  Some shells such as bash provide the ability of chaining program commands together. The way it works is that the standard output of one program as input to another program, all chained together by using the pipe (|) character.\nPrint content of a file and calculate word count This can be done with the following command:\n$ cat ~/.profile | wc 20 99 655  As we see, the output of the file ~/.profile has been redirected as input to the program wc\nList files redirecting stderr and calculate word count $ ls combined-output non-existent 2\u0026gt;\u0026amp;1 | wc -l 2  Regardless of both files existing or not, our output will show the same count since we have redirected stderr to stdout.\n"
 },
 {
+	"uri": "https://kajahno.me/bash-notes/en/basics/job-management/",
+	"title": "Job Management",
+	"tags": [],
+	"description": "",
+	"content": " When running programs in bash, it\u0026rsquo;s possible to do it in a \u0026lsquo;detached\u0026rsquo; mode. That is, sending the job to the background and continuing using the terminal\nIn order to prepare for this, let\u0026rsquo;s create the plain file long-time with the following content in it:\necho 'process started' sleep 60 #time in seconds echo 'process ended'  You can run this file by doing:\n$ bash long-time  The downside is that it will take around 60 seconds, time in which the terminal will be busy and cannot be used.\nSend jobs to the background Just append an ampersand to the end of the command:\n$ bash long-time \u0026amp; [1] 1718  The good thing is that now we can keep using the terminal since the job is executing in the background. This can be confirmed by running:\n$ jobs [1]+ Running bash long-time \u0026amp;  Something you\u0026rsquo;ll notice is that even though the program is running in the background, the output is being redirected to the terminal. Of course, we can redirect it as well.\nSimilarly we can end or kill jobs that are in the background, as follows:\n$ kill %1 $ [1]+ Terminated bash long-time  "
+},
+{
+	"uri": "https://kajahno.me/bash-notes/en/basics/bash-options/",
+	"title": "Bash options",
+	"tags": [],
+	"description": "",
+	"content": " Running a bash script has some interesting options that are worth mentioning. Let\u0026rsquo;s explore them here.\nIn order to prepare for this, let\u0026rsquo;s create the plain file script1 with the following content in it:\necho 'process started' ls non-existing sleep 10 #time in seconds touch somefile ls -l somefile echo 'process ended'  Check for syntax validity $ bash -n script1  When nothing is printed, the syntax is fine\nOutput commands as they\u0026rsquo;re being read Using verbose flag:\n$ bash -v script1 echo 'process started' process started ls non-existing ls: cannot access 'non-existing': No such file or directory sleep 10 #time in seconds touch somefile ls -l somefile -rw-rw-r-- 1 vagrant vagrant 0 Nov 24 23:06 somefile echo 'process ended' process ended  Notice how the comment is also being printed\n Using the -x flag:\n$ bash -x script1 + echo 'process started' process started + ls non-existing ls: cannot access 'non-existing': No such file or directory + sleep 10 + touch somefile + ls -l somefile -rw-rw-r-- 1 vagrant vagrant 0 Nov 24 23:08 somefile + echo 'process ended' process ended  It shows every line being executed. Also arguably more readable than a plain -v. Notice how the comment is being ignored\n "
+},
+{
 	"uri": "https://kajahno.me/bash-notes/en/",
 	"title": "Bash notes",
 	"tags": [],
