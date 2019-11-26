@@ -3,7 +3,6 @@ languageCode = "en-us"
 defaultContentLanguage = "en"
 defaultContentLanguageInSubdir= true
 
-
 title = "Bash notes"
 theme = "hugo-theme-learn"
 
@@ -35,7 +34,7 @@ weight = 20
 
 [[Languages.en.menu.shortcuts]]
 name = "<i class='fas fa-fw fa-bullhorn'></i> Credits"
-url = "/credits"
+url = "credits"
 weight = 30
 
 [Languages.es]

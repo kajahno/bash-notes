@@ -31,20 +31,6 @@
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/es/basics/bash-options/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/bash-options/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/bash-options/"
-                />
-  </url>
-  
-  <url>
     <loc>https://kajahno.me/bash-notes/es/basics/io-redirection/</loc>
     <xhtml:link
                 rel="alternate"
@@ -87,6 +73,20 @@
   </url>
   
   <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/bash-options/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/bash-options/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/bash-options/"
+                />
+  </url>
+  
+  <url>
     <loc>https://kajahno.me/bash-notes/es/reference/</loc>
     <xhtml:link
                 rel="alternate"
@@ -97,6 +97,34 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://kajahno.me/bash-notes/es/reference/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/decision-making/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/decision-making/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/decision-making/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/success-or-failure/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/success-or-failure/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/success-or-failure/"
                 />
   </url>
   

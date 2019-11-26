@@ -1,5 +1,5 @@
 ---
-title: Credits
+title: "Credits"
 disableToc: true
 ---
 

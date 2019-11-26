@@ -1,5 +1,5 @@
 ---
-title: IO Redirection
+title: Opciones de Bash
 weight: 15
 ---
 

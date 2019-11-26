@@ -7,9 +7,9 @@ clean:
 
 build: clean
 	${INFO} "Building project..."
-	# sed 's/PLC_LAST_UPDATED/$(shell $(CURRENT_DATE))/g' $(SOURCEDIR)/_themes/sphinx_rtd_theme/footer.html.template > $(SOURCEDIR)/_themes/sphinx_rtd_theme/footer.html
-	# sed 's/PLC_LAST_UPDATED/$(shell $(CURRENT_DATE))/g' $(SOURCEDIR)/_themes/sphinx_rtd_theme/layout.html.template > $(SOURCEDIR)/_themes/sphinx_rtd_theme/layout.html
 	@hugo --destination $(BUILDDIR)
+	${INFO} "Changing updated date using aggresive sed..."
+	@find $(BUILDDIR) -type f -name "*.html" -exec sed -i 's/PLC_LAST_UPDATED/$(shell $(CURRENT_DATE))/g' {} \;
 	${INFO} "Build finished"
 
 serve:
