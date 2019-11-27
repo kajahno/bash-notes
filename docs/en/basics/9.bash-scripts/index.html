@@ -1,0 +1,1022 @@
+<!DOCTYPE html>
+<html lang="en" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="description" content="Bash notes">
+<meta name="author" content="Karl Jahn">
+
+    <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
+
+    <title>Bash scripts :: Bash notes</title>
+
+    
+    <link href="/bash-notes/css/nucleus.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/fontawesome-all.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/hybrid.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/featherlight.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/perfect-scrollbar.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/auto-complete.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/theme.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/hugo-theme.css?1574898080" rel="stylesheet">
+    
+      <link href="/bash-notes/css/theme-green.css?1574898080" rel="stylesheet">
+    
+
+    <script src="/bash-notes/js/jquery-3.3.1.min.js?1574898080"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/bash-notes/en/basics/9.bash-scripts/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/bash-notes">
+  <img
+    src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/64x64.png"
+    alt="Bash logo"
+  />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Search...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1574898080"></script>
+<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1574898080"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kajahno.me\/bash-notes\/\/en";
+    
+</script>
+<script type="text/javascript" src="/bash-notes/js/search.js?1574898080"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/">
+          <b>1. </b>Basics
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/1.introduction/" title="Introduction" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/1.introduction/">
+          Introduction
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/2.io-redirection/" title="IO Redirection" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/2.io-redirection/">
+          IO Redirection
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/3.shell-pipelines/" title="Shell Pipelines" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/3.shell-pipelines/">
+          Shell Pipelines
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/4.job-management/" title="Job Management" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/4.job-management/">
+          Job Management
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/5.bash-options/" title="Bash options" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/5.bash-options/">
+          Bash options
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/6.decision-making/" title="Decision Making" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/6.decision-making/">
+          Decision Making
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/7.success-or-failure/" title="Success of Failure" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/7.success-or-failure/">
+          Success of Failure
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/8.variables/" title="Variables" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/8.variables/">
+          Variables
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/9.bash-scripts/" title="Bash scripts" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/bash-notes/en/basics/9.bash-scripts/">
+          Bash scripts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/reference/" title="Command reference" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/reference/">
+          <b>2. </b>Command reference
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/reference/io-redirection/" title="io-redirection" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/reference/io-redirection/">
+          io-redirection
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>More</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/kajahno/bash-notes"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://gohugo.io/"><i class='fas fa-fw fa-bookmark'></i> Hugo Documentation</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://kajahno.me/bash-notes/en/credits"><i class='fas fa-fw fa-bullhorn'></i> Credits</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/9.bash-scripts/" selected>English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/9.bash-scripts/">Español</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Clear History</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <center>
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/archive/master.zip"
+    data-icon="octicon-cloud-download"
+    aria-label="Download this repo from GitHub"
+    >Download</a
+  >
+
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/star"
+    data-icon="octicon-star"
+    data-show-count="true"
+    aria-label="Star kajahno/bash-notes on GitHub"
+    >Star</a
+  >
+
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/fork"
+    data-icon="octicon-repo-forked"
+    data-show-count="true"
+    aria-label="Fork kajahno/bash-notes on GitHub"
+    >Fork</a
+  >
+
+  <p>Made by <a href="https://github.com/kajahno">kajahno</a></p>
+  <p>Last updated on Nov 27, 2019</p>
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/basics/9.bash%20scripts/_index.en.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Edit this page</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Bash scripts
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#reading-parameters">Reading parameters</a>
+<ul>
+<li><a href="#accessing-all-parameters">Accessing all parameters</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              Bash scripts
+            </h1>
+          
+
+        
+
+
+
+
+	
+
+<p>Bash scripts enable us to reutilize a set of commands and provide robustness on our daily actions. Knowing this is a must for doing any kind of automation using bash.</p>
+
+<h2 id="reading-parameters">Reading parameters</h2>
+
+<p>Consider the following script:</p>
+
+<ul>
+<li><p>create a file <code>params1.bash</code> and place the content in:</p>
+
+<pre><code>echo $0
+echo $1
+echo $2
+</code></pre></li>
+
+<li><p>change the permissions and run it:</p>
+
+<pre><code class="language-bash">$ chmod +x params1.bash
+$ ./params1.bash one
+./script1.bash
+one
+</code></pre></li>
+</ul>
+
+<p>As you can see the parameter <code>$0</code> corresponds to the name of the script, and any other command line parameter is enumerated from <code>$1</code> onwards.</p>
+
+
+<div class="notices tip" ><p>Difference between command line parameter, argument, and option thanks to <a href="https://stackoverflow.com/a/36495940/5486521" target="_blank">this fellow</a></p>
+</div>
+
+
+<h3 id="accessing-all-parameters">Accessing all parameters</h3>
+
+<ul>
+<li><p>create a file <code>params2.bash</code> and place the following content inside:</p>
+
+<pre><code>echo $#
+echo $*
+echo $@
+</code></pre></li>
+
+<li><p>change permissions and run it with some params:</p>
+
+<pre><code class="language-bash">$ chmod +x params2.bash
+$ ./params2.bash one two three
+3
+one two three
+one two three
+</code></pre></li>
+</ul>
+
+<p>As you see:</p>
+
+<ul>
+<li><code>$#</code>: counts how many arguments were passed</li>
+<li><code>$*</code>: provides all arguments</li>
+<li><code>$@</code>: provides all arguments</li>
+</ul>
+
+<p>Now, even though in both <code>$*</code> and <code>$@</code> we appear to have the same result, there&rsquo;s a subtle difference. Let&rsquo;s modify our script to call another script as see what&rsquo;s going on:</p>
+
+<ul>
+<li><p>Create another script <code>params3.bash</code> with the following content:</p>
+
+<pre><code>echo &quot;number of args: $#&quot;
+</code></pre></li>
+
+<li><p>Give it execution permissions</p>
+
+<pre><code class="language-bash">$ chmod +x params3.bash
+</code></pre></li>
+
+<li><p>Now edit the <code>params2.bash</code> with the following content:</p>
+
+<pre><code class="language-bash">echo $#
+./params3.bash $*
+./params3.bash $@
+./params3.bash &quot;$*&quot;
+./params3.bash &quot;$@&quot;
+</code></pre></li>
+
+<li><p>Run it with a particular set of params and observe the result:</p>
+
+<pre><code class="language-bash">$ ./params2.bash one two three &quot;and four&quot;
+4
+number of args: 5
+number of args: 5
+number of args: 1
+number of args: 4
+</code></pre></li>
+</ul>
+
+<p>Sure enough those results might not be what you expected. Let&rsquo;s go case by case:</p>
+
+<ul>
+<li><code>./params3.bash $*</code>: sent the following args -&gt; one two three and four</li>
+<li><code>./params3.bash $@</code>: sent the following args -&gt; one two three and four</li>
+<li><code>./params3.bash &quot;$*&quot;</code>: sent the following args -&gt; &ldquo;one two three and four&rdquo;</li>
+<li><code>./params3.bash &quot;$@&quot;</code>: sent the following args -&gt; &lsquo;one two three &ldquo;and four&rdquo;&rsquo;</li>
+</ul>
+
+<p>Normally the intended thing we want to do, which is to forward all arguments, is accomplished in the last case. We are going to see more of this when covering arrays.</p>
+
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/bash-notes/en/basics/8.variables/" title="Variables"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/bash-notes/en/reference/" title="Command reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/bash-notes/js/clipboard.min.js?1574898080"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.min.js?1574898080"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1574898080"></script>
+    <script src="/bash-notes/js/jquery.sticky.js?1574898080"></script>
+    <script src="/bash-notes/js/featherlight.min.js?1574898080"></script>
+    <script src="/bash-notes/js/highlight.pack.js?1574898080"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1574898080"></script>
+    <script src="/bash-notes/js/learn.js?1574898080"></script>
+    <script src="/bash-notes/js/hugo-learn.js?1574898080"></script>
+
+    <link href="/bash-notes/mermaid/mermaid.css?1574898080" rel="stylesheet" />
+    <script src="/bash-notes/mermaid/mermaid.js?1574898080"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-128617327-2"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "UA-128617327-2");
+</script>
+
+  </body>
+</html>

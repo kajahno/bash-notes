@@ -17,30 +17,30 @@
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/introduction/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/1.introduction/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/introduction/"
+                href="https://kajahno.me/bash-notes/es/basics/1.introduction/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/introduction/"
+                href="https://kajahno.me/bash-notes/en/basics/1.introduction/"
                 />
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/io-redirection/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/2.io-redirection/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/io-redirection/"
+                href="https://kajahno.me/bash-notes/es/basics/2.io-redirection/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/io-redirection/"
+                href="https://kajahno.me/bash-notes/en/basics/2.io-redirection/"
                 />
   </url>
   
@@ -63,72 +63,100 @@
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/shell-pipelines/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/3.shell-pipelines/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/shell-pipelines/"
+                href="https://kajahno.me/bash-notes/es/basics/3.shell-pipelines/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/shell-pipelines/"
+                href="https://kajahno.me/bash-notes/en/basics/3.shell-pipelines/"
                 />
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/job-management/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/4.job-management/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/job-management/"
+                href="https://kajahno.me/bash-notes/es/basics/4.job-management/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/job-management/"
+                href="https://kajahno.me/bash-notes/en/basics/4.job-management/"
                 />
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/bash-options/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/5.bash-options/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/bash-options/"
+                href="https://kajahno.me/bash-notes/es/basics/5.bash-options/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/bash-options/"
+                href="https://kajahno.me/bash-notes/en/basics/5.bash-options/"
                 />
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/decision-making/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/6.decision-making/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/decision-making/"
+                href="https://kajahno.me/bash-notes/es/basics/6.decision-making/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/decision-making/"
+                href="https://kajahno.me/bash-notes/en/basics/6.decision-making/"
                 />
   </url>
   
   <url>
-    <loc>https://kajahno.me/bash-notes/en/basics/success-or-failure/</loc>
+    <loc>https://kajahno.me/bash-notes/en/basics/7.success-or-failure/</loc>
     <xhtml:link
                 rel="alternate"
                 hreflang="es"
-                href="https://kajahno.me/bash-notes/es/basics/success-or-failure/"
+                href="https://kajahno.me/bash-notes/es/basics/7.success-or-failure/"
                 />
     <xhtml:link
                 rel="alternate"
                 hreflang="en"
-                href="https://kajahno.me/bash-notes/en/basics/success-or-failure/"
+                href="https://kajahno.me/bash-notes/en/basics/7.success-or-failure/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/8.variables/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/8.variables/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/8.variables/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/9.bash-scripts/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/9.bash-scripts/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/9.bash-scripts/"
                 />
   </url>
   

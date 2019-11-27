@@ -8,6 +8,13 @@ theme = "hugo-theme-learn"
 
 [params]
 themeVariant = "green"
+editURL = "https://github.com/kajahno/bash-notes/edit/master/"
+description = "Bash notes"
+author = "Karl Jahn"
+showVisitedLinks = true
+disableBreadcrumb = false
+disableNextPrev = false
+
 
 [outputs]
 home = [ "HTML", "RSS", "JSON"]

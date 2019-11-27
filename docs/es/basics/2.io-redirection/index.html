@@ -1,0 +1,853 @@
+<!DOCTYPE html>
+<html lang="es" class="js csstransforms3d">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="generator" content="Hugo 0.59.1" />
+    <meta name="description" content="Bash notes">
+<meta name="author" content="Karl Jahn">
+
+    <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
+
+    <title>IO Redirection :: Documentación del tema Hugo Learn</title>
+
+    
+    <link href="/bash-notes/css/nucleus.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/fontawesome-all.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/hybrid.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/featherlight.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/perfect-scrollbar.min.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/auto-complete.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/theme.css?1574898080" rel="stylesheet">
+    <link href="/bash-notes/css/hugo-theme.css?1574898080" rel="stylesheet">
+    
+      <link href="/bash-notes/css/theme-green.css?1574898080" rel="stylesheet">
+    
+
+    <script src="/bash-notes/js/jquery-3.3.1.min.js?1574898080"></script>
+
+    <style>
+      :root #header + #content > #left > #rlblock_left{
+          display:none !important;
+      }
+      
+    </style>
+    
+  </head>
+  <body class="" data-url="/bash-notes/es/basics/2.io-redirection/">
+    <nav id="sidebar" class="showVisitedLinks">
+
+
+
+  <div id="header-wrapper">
+    <div id="header">
+      <a id="logo" href="/bash-notes">
+  <img
+    src="https://raw.githubusercontent.com/odb/official-bash-logo/master/assets/Logos/Icons/PNG/64x64.png"
+    alt="Bash logo"
+  />
+</a>
+
+    </div>
+    
+        <div class="searchbox">
+    <label for="search-by"><i class="fas fa-search"></i></label>
+    <input data-search-input id="search-by" type="search" placeholder="Buscar...">
+    <span data-search-clear=""><i class="fas fa-times"></i></span>
+</div>
+
+<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1574898080"></script>
+<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1574898080"></script>
+<script type="text/javascript">
+    
+        var baseurl = "https:\/\/kajahno.me\/bash-notes\/\/es";
+    
+</script>
+<script type="text/javascript" src="/bash-notes/js/search.js?1574898080"></script>
+
+    
+  </div>
+
+    <div class="highlightable">
+    <ul class="topics">
+
+        
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/" title="Conocimiento básico" class="dd-item 
+        parent
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/">
+          <b>1. </b>Conocimiento básico
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+      
+        <ul>
+          
+          
+            
+          
+          
+          
+        
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/1.introduction/" title="Introducción" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/1.introduction/">
+          Introducción
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/2.io-redirection/" title="IO Redirection" class="dd-item 
+        parent
+        active
+        
+        ">
+      <a href="/bash-notes/es/basics/2.io-redirection/">
+          IO Redirection
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/3.shell-pipelines/" title="IO Redirection" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/3.shell-pipelines/">
+          IO Redirection
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/4.job-management/" title="IO Redirection" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/4.job-management/">
+          IO Redirection
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/5.bash-options/" title="Opciones de Bash" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/5.bash-options/">
+          Opciones de Bash
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/6.decision-making/" title="Tomando decisiones" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/6.decision-making/">
+          Tomando decisiones
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/7.success-or-failure/" title="Éxito o fallo" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/7.success-or-failure/">
+          Éxito o fallo
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/8.variables/" title="Variables" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/8.variables/">
+          Variables
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/basics/9.bash-scripts/" title="Bash scripts" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/basics/9.bash-scripts/">
+          Bash scripts
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+        
+        </ul>
+              
+    </li>
+  
+ 
+
+          
+          
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/es/reference/" title="Lista de comandos" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/es/reference/">
+          <b>4. </b>Lista de comandos
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+          
+         
+    </ul>
+
+    
+    
+      <section id="shortcuts">
+        <h3>Más</h3>
+        <ul>
+          
+              <li> 
+                  <a class="padding" href="https://github.com/kajahno/bash-notes"><i class='fab fa-fw fa-github'></i> GitHub repo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://gohugo.io/"><i class='fas fa-fw fa-bookmark'></i> Documentation Hugo</a>
+              </li>
+          
+              <li> 
+                  <a class="padding" href="https://kajahno.me/es/bash-notes/credits"><i class='fas fa-fw fa-bullhorn'></i> Créditos</a>
+              </li>
+          
+        </ul>
+      </section>
+    
+
+    
+    <section id="prefooter">
+      <hr/>
+      <ul>
+      
+        <li>
+          <a class="padding">
+            <i class="fas fa-language fa-fw"></i>
+          <div class="select-style">
+            <select id="select-language" onchange="location = this.value;">
+          
+          
+          
+              
+              
+                  
+                    
+                    
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/2.io-redirection/">English</option>
+                    
+                  
+              
+                  
+              
+          
+              
+              
+                  
+              
+                  
+                    
+                    
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/2.io-redirection/" selected>Español</option>
+                    
+                  
+              
+          
+        </select>
+        <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+          width="255px" height="255px" viewBox="0 0 255 255" style="enable-background:new 0 0 255 255;" xml:space="preserve">
+          <g>
+            <g id="arrow-drop-down">
+              <polygon points="0,63.75 127.5,191.25 255,63.75 		" />
+            </g>
+          </g>
+        </svg>
+        </div>
+        </a>
+        </li>
+      
+      
+      
+        <li><a class="padding" href="#" data-clear-history-toggle=""><i class="fas fa-history fa-fw"></i> Borrar Historial</a></li>
+      
+      </ul>
+    </section>
+    
+    <section id="footer">
+      <center>
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/archive/master.zip"
+    data-icon="octicon-cloud-download"
+    aria-label="Download this repo from GitHub"
+    >Download</a
+  >
+
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/star"
+    data-icon="octicon-star"
+    data-show-count="true"
+    aria-label="Star kajahno/bash-notes on GitHub"
+    >Star</a
+  >
+
+  
+  <a
+    class="github-button"
+    href="https://github.com/kajahno/bash-notes/fork"
+    data-icon="octicon-repo-forked"
+    data-show-count="true"
+    aria-label="Fork kajahno/bash-notes on GitHub"
+    >Fork</a
+  >
+
+  <p>Made by <a href="https://github.com/kajahno">kajahno</a></p>
+  <p>Last updated on Nov 27, 2019</p>
+</center>
+
+<script async defer src="https://buttons.github.io/buttons.js"></script>
+
+    </section>
+  </div>
+</nav>
+
+
+
+
+
+        <section id="body">
+        <div id="overlay"></div>
+        <div class="padding highlightable">
+              
+              <div>
+                <div id="top-bar">
+                
+                  
+                  
+                  
+                  <div id="top-github-link">
+                    <a class="github-link" title='Editar esta página' href="https://github.com/kajahno/bash-notes/edit/master/basics/2.io-redirection/_index.es.md" target="blank">
+                      <i class="fas fa-code-branch"></i>
+                      <span id="top-github-link-text">Editar esta página</span>
+                    </a>
+                  </div>
+                  
+                
+                
+                <div id="breadcrumbs" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb">
+                    <span id="sidebar-toggle-span">
+                        <a href="#" id="sidebar-toggle" data-sidebar-toggle="">
+                          <i class="fas fa-bars"></i>
+                        </a>
+                    </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
+                  <span class="links">
+                 
+                 
+                    
+          
+          
+            
+            
+          
+          
+            
+            
+          
+          
+            <a href='/bash-notes/es/'>Notas de bash</a> > <a href='/bash-notes/es/basics/'>Conocimiento básico</a> > IO Redirection
+          
+         
+          
+         
+          
+        
+                 
+                  </span>
+                </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
+                
+              </div>
+            </div>
+            
+        <div id="head-tags">
+        
+        </div>
+        
+        <div id="body-inner">
+          
+            <h1>
+              
+              IO Redirection
+            </h1>
+          
+
+        
+
+
+
+
+	
+
+
+
+
+<footer class=" footline" >
+	
+</footer>
+
+        
+        </div> 
+        
+
+      </div>
+
+    <div id="navigation">
+        
+        
+        
+        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                        
+                    
+                    
+
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+        
+        
+
+
+	 
+	 
+		
+			<a class="nav nav-prev" href="/bash-notes/es/basics/1.introduction/" title="Introducción"> <i class="fa fa-chevron-left"></i></a>
+		
+		
+			<a class="nav nav-next" href="/bash-notes/es/basics/3.shell-pipelines/" title="IO Redirection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+	
+    </div>
+
+    </section>
+    
+    <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
+      <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
+    </div>
+    <script src="/bash-notes/js/clipboard.min.js?1574898080"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.min.js?1574898080"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1574898080"></script>
+    <script src="/bash-notes/js/jquery.sticky.js?1574898080"></script>
+    <script src="/bash-notes/js/featherlight.min.js?1574898080"></script>
+    <script src="/bash-notes/js/highlight.pack.js?1574898080"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1574898080"></script>
+    <script src="/bash-notes/js/learn.js?1574898080"></script>
+    <script src="/bash-notes/js/hugo-learn.js?1574898080"></script>
+
+    <link href="/bash-notes/mermaid/mermaid.css?1574898080" rel="stylesheet" />
+    <script src="/bash-notes/mermaid/mermaid.js?1574898080"></script>
+    <script>
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+    
+<script
+  async
+  src="https://www.googletagmanager.com/gtag/js?id=UA-128617327-2"
+></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() {
+    dataLayer.push(arguments);
+  }
+  gtag("js", new Date());
+
+  gtag("config", "UA-128617327-2");
+</script>
+
+  </body>
+</html>
