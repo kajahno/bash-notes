@@ -4,7 +4,7 @@ weight: 10
 disableToc: true
 ---
 
-![Bash logo](/bash-notes/en/basics/introduction/images/bash-logo-web.png)
+![Bash logo](/bash-notes/en/basics/1.introduction/images/bash-logo-web.png)
 
 [The GNU Bourne-Again SHell](https://www.gnu.org/software/bash/) is a very popular shell that combines functionalities for both programming and interactive use.
 
@@ -71,4 +71,4 @@ $ bash myfile
 myfile
 ```
 
-![Magic](/bash-notes/en/basics/introduction/images/magic.gif?classes=shadow)
+![Magic](/bash-notes/en/basics/1.introduction/images/magic.gif?classes=shadow)
