@@ -20,7 +20,7 @@ disableToc: true
 Es un programa el cual recibe como entrada lo que se escribe en el teclado, y redirecciona dicha entrada hacia el sistema operativo. Fue la primera clase de interfaces de usuario usada en sistemas operativos.
 
 ## ¿Qué es una 'terminal [emulador]'?
-How en día, gran mayoria de los sistemas operativos proveen una Interfaz Gráfica de Usuario (GUI). Un emulador de terminal es un programa que hace posible la interaccion con una shell. Ejemplos de emuladores de terminal incluyen: gnome-terminal, terminator.
+Hoy en día, gran mayoria de los sistemas operativos proveen una Interfaz Gráfica de Usuario (GUI). Un emulador de terminal es un programa que hace posible la interaccion con una shell. Ejemplos de emuladores de terminal incluyen: gnome-terminal, terminator.
 
 ## Iniciar bash
 
