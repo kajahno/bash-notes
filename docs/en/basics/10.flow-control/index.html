@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>Command reference :: Bash notes</title>
+    <title>Flow control :: Bash notes</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1576422488" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/en/reference/">
+  <body class="" data-url="/bash-notes/en/basics/10.flow-control/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -344,8 +344,8 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/10.flow-control/" title="Flow control" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/en/basics/10.flow-control/">
@@ -403,8 +403,8 @@
   
     
     <li data-nav-id="/bash-notes/en/reference/" title="Command reference" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/bash-notes/en/reference/">
@@ -501,7 +501,7 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/reference/" selected>English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/10.flow-control/" selected>English</option>
                     
                   
               
@@ -515,7 +515,7 @@
                   
                     
                     
-                      <option id="es" value="https://kajahno.me/bash-notes/es/reference/">Español</option>
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/10.flow-control/">Español</option>
                     
                   
               
@@ -622,7 +622,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content/reference/_index.en.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content/basics/10.flow-control/_index.en.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -637,6 +637,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -647,7 +649,13 @@
             
           
           
-            <a href='/bash-notes/en/'>Bash notes</a> > Command reference
+            
+            
+          
+          
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Flow control
+          
+         
           
          
           
@@ -656,6 +664,38 @@
                   </span>
                 </div>
                 
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#for-loop">For loop</a>
+<ul>
+<li><a href="#looping-over-stdin">Looping over <code>stdin</code></a></li>
+<li><a href="#looping-over-a-list">Looping over a list</a></li>
+<li><a href="#classic-c-like-for-loop-in-bash">Classic C-like for loop in bash</a></li>
+<li><a href="#looping-over-the-characters-of-a-string-variable">Looping over the characters of a string variable</a>
+<ul>
+<li><a href="#bonus-print-the-string-characters-in-reverse-order">Bonus: print the string characters in reverse order</a></li>
+</ul></li>
+</ul></li>
+<li><a href="#while-loop">While loop</a>
+<ul>
+<li><a href="#looping-over-the-result-of-a-pipeline-of-commands">Looping over the result of a pipeline of commands</a></li>
+</ul></li>
+<li><a href="#until-loop">Until loop</a></li>
+<li><a href="#case-statement">Case statement</a>
+<ul>
+<li><a href="#continue-matching-patterns">Continue matching patterns</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
+                
               </div>
             </div>
             
@@ -663,9 +703,12 @@
         
         </div>
         
-          <div id="chapter">
-        
         <div id="body-inner">
+          
+            <h1>
+              
+              Flow control
+            </h1>
           
 
         
@@ -675,53 +718,303 @@
 
 	
 
-<h3 id="chapter-2">Chapter 2</h3>
+<p>Flow control expressions allow us to include additional logic into our bash scripts</p>
 
-<h1 id="command-reference">Command reference</h1>
+<h2 id="for-loop">For loop</h2>
 
-<p>Covers a list of commands and what they do</p>
+<h3 id="looping-over-stdin">Looping over <code>stdin</code></h3>
+
+<p>Let&rsquo;s create the simplest for loop in a script:</p>
+
+<ul>
+<li><p>create a file <code>simpleforloop.bash</code> and place the following content inside:</p>
+
+<pre><code class="language-bash">for VAR
+do
+echo Hey $VAR
+done
+</code></pre></li>
+
+<li><p>change the permissions and run it:</p>
+
+<pre><code class="language-bash">$ chmod +x simpleforloop.bash
+$ ./simpleforloop.bash one two three
+Hey one
+Hey two
+Hey three
+$
+</code></pre></li>
+</ul>
+
+<p>If no list of values is specified to the for loop, then <code>stdin</code> will be used as default. It&rsquo;s important to note that the commands within the <code>do</code> and <code>done</code> statement will be run for each value specified in the list (each value in <code>stdin</code> in this case).</p>
 
 
+<div class="notices note" ><p>In this example the variable used was <code>VAR</code>, however this doesn&rsquo;t really matter since it&rsquo;s just a container for the iteration variable</p>
+</div>
 
 
+<h3 id="looping-over-a-list">Looping over a list</h3>
 
+<p>This is by far the most common way of using a for loop in bash</p>
 
+<p>Run the following command directly in the shell:</p>
 
+<pre><code class="language-bash">  for i in $( ls ); do
+    echo Hey $i
+  done
+</code></pre>
 
-<ul class="children children-li">
-	
+<p>It&rsquo;s interesting to point out that:</p>
 
-	
-		
-			
-		
-	
+<ul>
+<li><p>The output (cropped) should be something similar to:</p>
 
-	
+<pre><code class="language-bash">Hey combined-output
+[...]
+Hey simpleforloop.bash
+Hey somefile
+</code></pre></li>
 
-	
-		
-	
-		
-			
-				
-<li>
-<a href="/bash-notes/en/reference/io-redirection/" >io-redirection</a>
-</li>
-				
+<li><p>We are passing list of values to the for loop: we&rsquo;re gathering the result of running the command <code>ls</code> in a subshell</p></li>
 
-				
-			
-			
-		
-	
+<li><p>Each value from the list is assigned to the iteration variable <code>i</code></p></li>
 
-	
+<li><p>The <code>do</code> statement was placed inline. This could have also been specified in a new line</p></li>
+
+<li><p>In this case we have only one statement in the loop, <code>echo Hey $1</code>, however we can have as many as we wanted (including, other loops, of course)</p></li>
+</ul>
+
+<h3 id="classic-c-like-for-loop-in-bash">Classic C-like for loop in bash</h3>
+
+<p>If you&rsquo;re familiar with C-like loops, then this should feel natural. If not, in case you bumped into this you&rsquo;ll know.</p>
+
+<p>Run the following script directly in the shell:</p>
+
+<pre><code class="language-bash">for ((i=1; i&lt;10; i++)); do
+  echo Hey $i
+done
+</code></pre>
+
+<p>Things to point out:</p>
+
+<ul>
+<li><p>The output (cropped) should be similar to:</p>
+
+<pre><code class="language-bash">Hey 1
+[...]
+Hey 9
+</code></pre></li>
+
+<li><p>Bash automatically assigns the iteration variable for <code>i</code></p></li>
+
+<li><p>We can control the increment of the looping variable: instead of <code>i++</code>, we can easily say <code>i+=2</code> to increment by 2 after every loop</p></li>
+</ul>
+
+<h3 id="looping-over-the-characters-of-a-string-variable">Looping over the characters of a string variable</h3>
+
+<p>Run the following in the shell:</p>
+
+<pre><code class="language-bash">var=&quot;Portuguese and Spanish have roughly 90% of lexical similarity&quot;
+for ((i=0; i&lt;${#var}; i++ ))
+do
+  echo character[${i}] = ${var:i:1}
+done
+</code></pre>
+
+<p>Things to point out:</p>
+
+<ul>
+<li><p>The output (cropped) should be similar to:</p>
+
+<pre><code class="language-bash">character[0] = P
+character[1] = o
+character[2] = r
+[...]
+character[59] = t
+character[60] = y
+</code></pre></li>
+
+<li><p>Pay close attention on how we got the character count of the string: <code>${#var}</code></p></li>
 </ul>
 
 
+<div class="notices note" ><p>This is just for fun, handling complicated things like this in bash is probably a bad idea.</p>
+</div>
 
 
+<h4 id="bonus-print-the-string-characters-in-reverse-order">Bonus: print the string characters in reverse order</h4>
+
+<p>Simple but not straightforward, the following will accomplish the challenge:</p>
+
+<pre><code class="language-bash">var=&quot;Portuguese and Spanish have roughly 90% of lexical similarity&quot;
+for ((i=${#var} - 1; i&gt;=0; i-- )); do
+  echo character[${i}] = ${var:i:1}
+done
+</code></pre>
+
+<p>The output should be similar to:</p>
+
+<pre><code class="language-bash">character[60] = y
+character[59] = t
+[...]
+character[1] = o
+character[0] = P
+</code></pre>
+
+<h2 id="while-loop">While loop</h2>
+
+<p>Differs from a <code>for</code> loop in the sense that it will continue looping while a condition remains <code>true</code> (basically non-zero) . For example, let&rsquo;s run the following in the shell:</p>
+
+<pre><code class="language-bash">i=0
+while (( i &lt; 10 ))
+do
+  echo Hey $i
+  i=$((i+1))
+done
+</code></pre>
+
+<p>Things to notice:</p>
+
+<ul>
+<li><p>The output should be similar to:</p>
+
+<pre><code class="language-shell">Hey 0
+Hey 1
+[...]
+Hey 9
+</code></pre></li>
+
+<li><p>There&rsquo;s a strange <code>$(( ))</code>, this is called arithmetic expression and will get covered in the next section</p></li>
+
+<li><p>It&rsquo;s very similar to a <code>for</code> loop</p></li>
+</ul>
+
+<h3 id="looping-over-the-result-of-a-pipeline-of-commands">Looping over the result of a pipeline of commands</h3>
+
+<p>Let&rsquo;s say, we want to loop over the result of <code>ls</code> using a while loop. We can achieve it with:</p>
+
+<pre><code class="language-bash">ls | while read fname; do
+  echo Hey file: $fname
+done
+</code></pre>
+
+<p>Things to notice here:</p>
+
+<ul>
+<li><p>The output should be similar to:</p>
+
+<pre><code class="language-shell">Hey file: combined-output
+[...]
+Hey file: somefile
+</code></pre></li>
+
+<li><p>The <code>while</code> condition relies in the <code>read</code> command, which parses each output of the <code>ls</code></p></li>
+</ul>
+
+<h2 id="until-loop">Until loop</h2>
+
+<p>There&rsquo;s another loop, the <code>until</code> loop. It&rsquo;s syntax is similar to the <code>while</code> loop but differs in the sense that the loop will continue until the condition is met (think of it as &lsquo;while the condition is not true&rsquo;). For example (taken from the <a target="_blank" href="https://www.tldp.org/HOWTO/Bash-Prog-Intro-HOWTO-7.html">official documentation</a>):</p>
+
+<pre><code class="language-bash">COUNTER=20
+until [  $COUNTER -lt 10 ]; do
+    echo COUNTER $COUNTER
+    let COUNTER-=1
+done
+</code></pre>
+
+<p>Things to notice:</p>
+
+<ul>
+<li><p>The output should be similar to:</p>
+
+<pre><code class="language-bash">COUNTER 20
+[...]
+COUNTER 10
+</code></pre>
+
+
+<div class="notices note" ><p>Notice how the values printed were the ones when the condition was not true (zero)</p>
+</div>
+</li>
+
+<li><p>There&rsquo;s a <code>let</code> command that will get covered in the subsequent section</p></li>
+</ul>
+
+<h2 id="case-statement">Case statement</h2>
+
+<p>It&rsquo;s a powerful statement that allows us to easily match input patterns.
+
+<div class="notices tip" ><p>In other programming languages this is known also as &lsquo;switch&rsquo; statement</p>
+</div>
+</p>
+
+<p>Let&rsquo;s create the script <code>simplecase.bash</code>, with the following content:</p>
+
+<pre><code class="language-bash">read -p &quot;Answer 'yes' or 'no': &quot; ANS
+case &quot;$ANS&quot; in
+  yes) echo &quot;OK&quot;
+    ;;
+  (no) echo &quot;it's a 'no' then, thanks&quot;
+    ;;
+  *)
+    echo &quot;you didn't specify anything :(&quot;
+    exit 1
+    ;;
+esac
+</code></pre>
+
+<p>Now run the script:</p>
+
+<pre><code class="language-shell">$ bash simplecase.bash
+Answer 'yes' or 'no': no
+it's a 'no' then, thanks
+</code></pre>
+
+<p>Things to notice:</p>
+
+<ul>
+<li>The statement begins and ends with <code>case</code> and <code>esac</code>, respectively</li>
+<li>The values <code>yes</code> and <code>no</code> are actually shell pattern matches, so we could have specified <code>y*</code> and <code>n*</code> and the result would be the same</li>
+<li>If nothing is matched, then the shell pattern match (<code>*</code>) for <code>zero or more characters</code> will kick in and return error (1)</li>
+<li>The conditions to evaluate must be separated by double semicolon <code>;;</code></li>
+<li>After the parenthesis you can either put the statement inline or in a new line</li>
+<li>The leading parenthesis in <code>(no)</code> is optional. In fact, must people tend to not specify it</li>
+</ul>
+
+<h3 id="continue-matching-patterns">Continue matching patterns</h3>
+
+<p>As you&rsquo;ve noticed, once there&rsquo;s a pattern match the <code>case</code> statement will run the respective block and then exit the statement. Sometimes though, we want to continue matching all the remaining patterns (in order). This is possible since bash 4.0+.</p>
+
+<p>Let&rsquo;s create another script <code>simplecase2.bash</code> with the following content:</p>
+
+<pre><code class="language-bash">input=&quot;this is a dummy text&quot;
+case &quot;$input&quot; in
+  *a*)
+    echo &quot;Character 'a' is present&quot;
+    ;;&amp;
+  *is*)
+    echo &quot;Word 'is' is present&quot;
+    ;&amp;
+  *text)
+    echo &quot;Var ends with word 'text'. Now we exit with error&quot;
+    exit 1
+    ;;
+esac
+</code></pre>
+
+<p>Now run the script:</p>
+
+<pre><code class="language-shell">$ bash simplecase2.bash
+Character 'a' is present
+Word 'is' is present
+Var ends with word 'text'. Now we exit with error
+</code></pre>
+
+<p>Things to notice:</p>
+
+<ul>
+<li>The feature to continue matching patterns is activated when we specify either <code>;;&amp;</code> or <code>;&amp;</code> at the end of each pattern match</li>
+</ul>
 
 
 
@@ -731,8 +1024,6 @@
 	
 </footer>
 
-        
-            </div> 
         
         </div> 
         
@@ -764,8 +1055,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -781,6 +1070,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -926,6 +1218,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -933,6 +1226,28 @@
                     
                     
 
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
                     
             
         
@@ -947,26 +1262,6 @@
 
                     
                     
-                    
-
-                    
-            
-        
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
-                    
-                
-                
-
-                    
-                    
                         
                     
                     
@@ -976,9 +1271,6 @@
             
             
                 
-                    
-                        
-                        
                     
                 
                 
@@ -1003,10 +1295,10 @@
 	 
 	 
 		
-			<a class="nav nav-prev" href="/bash-notes/en/basics/11.command-substitution/" title="Command substitution"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/bash-notes/en/basics/9.bash-scripts/" title="Bash scripts"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/bash-notes/en/reference/io-redirection/" title="io-redirection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/bash-notes/en/basics/11.command-substitution/" title="Command substitution" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>

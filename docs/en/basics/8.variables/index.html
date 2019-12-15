@@ -12,20 +12,20 @@
     <title>Variables :: Bash notes</title>
 
     
-    <link href="/bash-notes/css/nucleus.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/fontawesome-all.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/hybrid.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/featherlight.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/perfect-scrollbar.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/auto-complete.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/theme.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/hugo-theme.css?1575332936" rel="stylesheet">
+    <link href="/bash-notes/css/nucleus.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/fontawesome-all.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/hybrid.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/featherlight.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/perfect-scrollbar.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/auto-complete.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/theme.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/hugo-theme.css?1576422488" rel="stylesheet">
     
-      <link href="/bash-notes/css/theme-green.css?1575332936" rel="stylesheet">
+      <link href="/bash-notes/css/theme-green.css?1576422488" rel="stylesheet">
     
 
-    <script src="/bash-notes/js/jquery-3.3.1.min.js?1575332936"></script>
+    <script src="/bash-notes/js/jquery-3.3.1.min.js?1576422488"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1575332936"></script>
-<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1575332936"></script>
+<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1576422488"></script>
+<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1576422488"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kajahno.me\/bash-notes\/\/en";
     
 </script>
-<script type="text/javascript" src="/bash-notes/js/search.js?1575332936"></script>
+<script type="text/javascript" src="/bash-notes/js/search.js?1576422488"></script>
 
     
   </div>
@@ -336,6 +336,58 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/10.flow-control/" title="Flow control" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/10.flow-control/">
+          Flow control
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/11.command-substitution/" title="Command substitution" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/11.command-substitution/">
+          Command substitution
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -546,7 +598,7 @@
   >
 
   <p>Made by <a href="https://github.com/kajahno">kajahno</a></p>
-  <p>Last updated on Dec 03, 2019</p>
+  <p>Last updated on Dec 15, 2019</p>
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -628,6 +680,7 @@
 <li><a href="#propagate-variable-across-subshells">Propagate variable across subshells</a></li>
 </ul></li>
 <li><a href="#string-substitution">String substitution</a></li>
+<li><a href="#substrings">Substrings</a></li>
 <li><a href="#special-variables">Special variables</a></li>
 </ul></li>
 </ul>
@@ -667,6 +720,8 @@
 <p>By convention bash variables tend to be in uppercase, however that depends on the style of programming. Personally I tend to name variables in upper case when they are in a global scope (at the beginning of a script) , and in lowercase when in local scope (inside a function or statement).</p>
 
 <h3 id="declaring-a-variable">Declaring a variable</h3>
+
+<p>Let&rsquo;s create a couple of variables. Run the following:</p>
 
 <pre><code class="language-bash">VAR1=&quot;some value&quot;
 var1=&quot;some other value&quot;
@@ -935,6 +990,39 @@ todo muy muy bueno
 </ul></li>
 </ul>
 
+<h2 id="substrings">Substrings</h2>
+
+<p>Let&rsquo;s declare the following variable:</p>
+
+<pre><code class="language-bash">substrvar=&quot;variable with dummy content&quot;
+</code></pre>
+
+<p>Now let&rsquo;s do a couple of cool things to this variable:</p>
+
+<ul>
+<li><p>Extracting the &lsquo;variable&rsquo; word:</p>
+
+<pre><code class="language-bash">$ echo ${substrvar:0:8}
+variable
+</code></pre>
+
+
+<div class="notices note" ><p>The <strong>starting index</strong> goes in the middle (starting from 0), then the <strong>length of the string</strong> goes at the third place</p>
+</div>
+</li>
+
+<li><p>Extracting everything after the &lsquo;variable&rsquo; word:</p>
+
+<pre><code class="language-bash">$ echo $(substrvar:8)
+with dummy content
+</code></pre>
+
+
+<div class="notices note" ><p>Notice how the second index is optional and by default will return all the remaining characters of the string</p>
+</div>
+</li>
+</ul>
+
 <h2 id="special-variables">Special variables</h2>
 
 <ul>
@@ -1147,6 +1235,38 @@ todo muy muy bueno
             
         
                     
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+                        
+            
+            
+                
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -1206,19 +1326,19 @@ todo muy muy bueno
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/bash-notes/js/clipboard.min.js?1575332936"></script>
-    <script src="/bash-notes/js/perfect-scrollbar.min.js?1575332936"></script>
-    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1575332936"></script>
-    <script src="/bash-notes/js/jquery.sticky.js?1575332936"></script>
-    <script src="/bash-notes/js/featherlight.min.js?1575332936"></script>
-    <script src="/bash-notes/js/highlight.pack.js?1575332936"></script>
+    <script src="/bash-notes/js/clipboard.min.js?1576422488"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.min.js?1576422488"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1576422488"></script>
+    <script src="/bash-notes/js/jquery.sticky.js?1576422488"></script>
+    <script src="/bash-notes/js/featherlight.min.js?1576422488"></script>
+    <script src="/bash-notes/js/highlight.pack.js?1576422488"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1575332936"></script>
-    <script src="/bash-notes/js/learn.js?1575332936"></script>
-    <script src="/bash-notes/js/hugo-learn.js?1575332936"></script>
+    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1576422488"></script>
+    <script src="/bash-notes/js/learn.js?1576422488"></script>
+    <script src="/bash-notes/js/hugo-learn.js?1576422488"></script>
 
-    <link href="/bash-notes/mermaid/mermaid.css?1575332936" rel="stylesheet" />
-    <script src="/bash-notes/mermaid/mermaid.js?1575332936"></script>
+    <link href="/bash-notes/mermaid/mermaid.css?1576422488" rel="stylesheet" />
+    <script src="/bash-notes/mermaid/mermaid.js?1576422488"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

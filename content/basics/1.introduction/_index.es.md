@@ -4,7 +4,7 @@ weight: 10
 disableToc: true
 ---
 
-![logo de Bash](/bash-notes/en/basics/introduction/images/bash-logo-web.png)
+![logo de Bash](/bash-notes/en/basics/1.introduction/images/bash-logo-web.png)
 
 [La GNU Bourne-Again SHell](https://www.gnu.org/software/bash/) es una shell muy pupular ya que combina funcionalidades tanto para uso interactive y programático.
 

@@ -12,20 +12,20 @@
     <title>Bash scripts :: Bash notes</title>
 
     
-    <link href="/bash-notes/css/nucleus.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/fontawesome-all.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/hybrid.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/featherlight.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/perfect-scrollbar.min.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/auto-complete.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/theme.css?1575332936" rel="stylesheet">
-    <link href="/bash-notes/css/hugo-theme.css?1575332936" rel="stylesheet">
+    <link href="/bash-notes/css/nucleus.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/fontawesome-all.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/hybrid.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/featherlight.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/perfect-scrollbar.min.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/auto-complete.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/atom-one-dark-reasonable.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/theme.css?1576422488" rel="stylesheet">
+    <link href="/bash-notes/css/hugo-theme.css?1576422488" rel="stylesheet">
     
-      <link href="/bash-notes/css/theme-green.css?1575332936" rel="stylesheet">
+      <link href="/bash-notes/css/theme-green.css?1576422488" rel="stylesheet">
     
 
-    <script src="/bash-notes/js/jquery-3.3.1.min.js?1575332936"></script>
+    <script src="/bash-notes/js/jquery-3.3.1.min.js?1576422488"></script>
 
     <style>
       :root #header + #content > #left > #rlblock_left{
@@ -57,14 +57,14 @@
     <span data-search-clear=""><i class="fas fa-times"></i></span>
 </div>
 
-<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1575332936"></script>
-<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1575332936"></script>
+<script type="text/javascript" src="/bash-notes/js/lunr.min.js?1576422488"></script>
+<script type="text/javascript" src="/bash-notes/js/auto-complete.js?1576422488"></script>
 <script type="text/javascript">
     
         var baseurl = "https:\/\/kajahno.me\/bash-notes\/\/en";
     
 </script>
-<script type="text/javascript" src="/bash-notes/js/search.js?1575332936"></script>
+<script type="text/javascript" src="/bash-notes/js/search.js?1576422488"></script>
 
     
   </div>
@@ -336,6 +336,58 @@
 
             
           
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/10.flow-control/" title="Flow control" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/10.flow-control/">
+          Flow control
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
+            
+            
+
+
+ 
+  
+    
+    <li data-nav-id="/bash-notes/en/basics/11.command-substitution/" title="Command substitution" class="dd-item 
+        
+        
+        
+        ">
+      <a href="/bash-notes/en/basics/11.command-substitution/">
+          Command substitution
+          
+            <i class="fas fa-check read-icon"></i>
+          
+      </a>
+      
+              
+    </li>
+  
+ 
+
+            
+          
         
         </ul>
               
@@ -546,7 +598,7 @@
   >
 
   <p>Made by <a href="https://github.com/kajahno">kajahno</a></p>
-  <p>Last updated on Dec 03, 2019</p>
+  <p>Last updated on Dec 15, 2019</p>
 </center>
 
 <script async defer src="https://buttons.github.io/buttons.js"></script>
@@ -618,10 +670,11 @@
 <ul>
 <li>
 <ul>
-<li><a href="#reading-parameters">Reading parameters</a>
+<li><a href="#accessing-parameters">Accessing parameters</a>
 <ul>
 <li><a href="#accessing-all-parameters">Accessing all parameters</a></li>
 </ul></li>
+<li><a href="#read-command"><code>read</code> command</a></li>
 </ul></li>
 </ul>
 </nav>
@@ -653,21 +706,21 @@
 
 <p>Bash scripts enable us to reutilize a set of commands and provide robustness on our daily actions. Knowing this is a must for doing any kind of automation using bash.</p>
 
-<h2 id="reading-parameters">Reading parameters</h2>
+<h2 id="accessing-parameters">Accessing parameters</h2>
 
 <p>Consider the following script:</p>
 
 <ul>
 <li><p>create a file <code>params1.bash</code> and place the content in:</p>
 
-<pre><code>echo $0
+<pre><code class="language-bash">echo $0
 echo $1
 echo $2
 </code></pre></li>
 
 <li><p>change the permissions and run it:</p>
 
-<pre><code class="language-bash">$ chmod +x params1.bash
+<pre><code class="language-shell">$ chmod +x params1.bash
 $ ./params1.bash one
 ./script1.bash
 one
@@ -686,14 +739,14 @@ one
 <ul>
 <li><p>create a file <code>params2.bash</code> and place the following content inside:</p>
 
-<pre><code>echo $#
+<pre><code class="language-bash">echo $#
 echo $*
 echo $@
 </code></pre></li>
 
 <li><p>change permissions and run it with some params:</p>
 
-<pre><code class="language-bash">$ chmod +x params2.bash
+<pre><code class="language-shell">$ chmod +x params2.bash
 $ ./params2.bash one two three
 3
 one two three
@@ -714,12 +767,12 @@ one two three
 <ul>
 <li><p>Create another script <code>params3.bash</code> with the following content:</p>
 
-<pre><code>echo &quot;number of args: $#&quot;
+<pre><code class="language-bash">echo &quot;number of args: $#&quot;
 </code></pre></li>
 
 <li><p>Give it execution permissions</p>
 
-<pre><code class="language-bash">$ chmod +x params3.bash
+<pre><code class="language-shell">$ chmod +x params3.bash
 </code></pre></li>
 
 <li><p>Now edit the <code>params2.bash</code> with the following content:</p>
@@ -733,7 +786,7 @@ one two three
 
 <li><p>Run it with a particular set of params and observe the result:</p>
 
-<pre><code class="language-bash">$ ./params2.bash one two three &quot;and four&quot;
+<pre><code class="language-shell">$ ./params2.bash one two three &quot;and four&quot;
 4
 number of args: 5
 number of args: 5
@@ -752,6 +805,39 @@ number of args: 4
 </ul>
 
 <p>Normally the intended thing we want to do, which is to forward all arguments, is accomplished in the last case. We are going to see more of this when covering arrays.</p>
+
+<h2 id="read-command"><code>read</code> command</h2>
+
+<p>This command allows us to promp for an input value and store it in a variable. For example:</p>
+
+<pre><code class="language-shell">$ read VAR
+something
+$ echo $VAR
+something
+</code></pre>
+
+<p>You can also specify a prompt message, for example:</p>
+
+<pre><code class="language-shell">$ read -p &quot;What is your age? &quot; age
+What is your age? can't say
+$ echo $age
+can't say
+</code></pre>
+
+<p>It&rsquo;s also possible to specify multiple parameters at once:</p>
+
+<pre><code class="language-shell">$ read one two
+this is a test
+$ echo $one
+this
+$ echo $two
+is a test
+</code></pre>
+
+
+<div class="notices note" ><p>This command reads the arguments separated by space</p>
+</div>
+
 
 
 
@@ -951,6 +1037,22 @@ number of args: 4
             
         
                     
+                        
+            
+            
+                
+                    
+                        
+                        
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
             
         
                     
@@ -959,8 +1061,24 @@ number of args: 4
             
                 
                     
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
+            
+        
+                    
                         
-                        
+            
+            
+                
                     
                 
                 
@@ -1003,7 +1121,7 @@ number of args: 4
 			<a class="nav nav-prev" href="/bash-notes/en/basics/8.variables/" title="Variables"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/bash-notes/en/reference/" title="Command reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/bash-notes/en/basics/10.flow-control/" title="Flow control" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1013,19 +1131,19 @@ number of args: 4
     <div style="left: -1000px; overflow: scroll; position: absolute; top: -1000px; border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;">
       <div style="border: none; box-sizing: content-box; height: 200px; margin: 0px; padding: 0px; width: 200px;"></div>
     </div>
-    <script src="/bash-notes/js/clipboard.min.js?1575332936"></script>
-    <script src="/bash-notes/js/perfect-scrollbar.min.js?1575332936"></script>
-    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1575332936"></script>
-    <script src="/bash-notes/js/jquery.sticky.js?1575332936"></script>
-    <script src="/bash-notes/js/featherlight.min.js?1575332936"></script>
-    <script src="/bash-notes/js/highlight.pack.js?1575332936"></script>
+    <script src="/bash-notes/js/clipboard.min.js?1576422488"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.min.js?1576422488"></script>
+    <script src="/bash-notes/js/perfect-scrollbar.jquery.min.js?1576422488"></script>
+    <script src="/bash-notes/js/jquery.sticky.js?1576422488"></script>
+    <script src="/bash-notes/js/featherlight.min.js?1576422488"></script>
+    <script src="/bash-notes/js/highlight.pack.js?1576422488"></script>
     <script>hljs.initHighlightingOnLoad();</script>
-    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1575332936"></script>
-    <script src="/bash-notes/js/learn.js?1575332936"></script>
-    <script src="/bash-notes/js/hugo-learn.js?1575332936"></script>
+    <script src="/bash-notes/js/modernizr.custom-3.6.0.js?1576422488"></script>
+    <script src="/bash-notes/js/learn.js?1576422488"></script>
+    <script src="/bash-notes/js/hugo-learn.js?1576422488"></script>
 
-    <link href="/bash-notes/mermaid/mermaid.css?1575332936" rel="stylesheet" />
-    <script src="/bash-notes/mermaid/mermaid.js?1575332936"></script>
+    <link href="/bash-notes/mermaid/mermaid.css?1576422488" rel="stylesheet" />
+    <script src="/bash-notes/mermaid/mermaid.js?1576422488"></script>
     <script>
         mermaid.initialize({ startOnLoad: true });
     </script>

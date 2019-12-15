@@ -157,6 +157,34 @@
   </url>
   
   <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/10.flow-control/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/10.flow-control/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/10.flow-control/"
+                />
+  </url>
+  
+  <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/11.command-substitution/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/11.command-substitution/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/11.command-substitution/"
+                />
+  </url>
+  
+  <url>
     <loc>https://kajahno.me/bash-notes/es/categories/</loc>
     <xhtml:link
                 rel="alternate"

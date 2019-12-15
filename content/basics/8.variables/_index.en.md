@@ -13,6 +13,7 @@ By convention bash variables tend to be in uppercase, however that depends on th
 
 ### Declaring a variable
 
+Let's create a couple of variables. Run the following:
 ```bash
 VAR1="some value"
 var1="some other value"
@@ -283,6 +284,32 @@ $ myvar="todo muy muy bien"
   ```
 
   - Note: there's a very powerful bash program called `sed` that does this and much more
+
+## Substrings
+
+Let's declare the following variable:
+```bash
+substrvar="variable with dummy content"
+```
+Now let's do a couple of cool things to this variable:
+
+* Extracting the 'variable' word:
+  ```bash
+  $ echo ${substrvar:0:8}
+  variable
+  ```
+{{% notice note %}}
+The **starting index** goes in the middle (starting from 0), then the **length of the string** goes at the third place
+{{% /notice %}}
+
+* Extracting everything after the 'variable' word:
+  ```bash
+  $ echo $(substrvar:8)
+  with dummy content
+  ```
+{{% notice note %}}
+Notice how the second index is optional and by default will return all the remaining characters of the string
+{{% /notice %}}
 
 ## Special variables
 

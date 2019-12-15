@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>Introducción :: Documentación del tema Hugo Learn</title>
+    <title>Flow control :: Documentación del tema Hugo Learn</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1576422488" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/es/basics/1.introduction/">
+  <body class="" data-url="/bash-notes/es/basics/11.command-substitution/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -110,8 +110,8 @@
   
     
     <li data-nav-id="/bash-notes/es/basics/1.introduction/" title="Introducción" class="dd-item 
-        parent
-        active
+        
+        
         
         ">
       <a href="/bash-notes/es/basics/1.introduction/">
@@ -370,8 +370,8 @@
   
     
     <li data-nav-id="/bash-notes/es/basics/11.command-substitution/" title="Flow control" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/es/basics/11.command-substitution/">
@@ -463,7 +463,7 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/1.introduction/">English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/11.command-substitution/">English</option>
                     
                   
               
@@ -477,7 +477,7 @@
                   
                     
                     
-                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/1.introduction/" selected>Español</option>
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/11.command-substitution/" selected>Español</option>
                     
                   
               
@@ -584,7 +584,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Editar esta página' href="https://github.com/kajahno/bash-notes/edit/master/content/basics/1.introduction/_index.es.md" target="blank">
+                    <a class="github-link" title='Editar esta página' href="https://github.com/kajahno/bash-notes/edit/master/content/basics/11.command-substitution/_index.es.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Editar esta página</span>
                     </a>
@@ -598,6 +598,8 @@
                           <i class="fas fa-bars"></i>
                         </a>
                     </span>
+                  
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
                   
                   <span class="links">
                  
@@ -613,7 +615,7 @@
             
           
           
-            <a href='/bash-notes/es/'>Notas de bash</a> > <a href='/bash-notes/es/basics/'>Conocimiento básico</a> > Introducción
+            <a href='/bash-notes/es/'>Notas de bash</a> > <a href='/bash-notes/es/basics/'>Conocimiento básico</a> > Flow control
           
          
           
@@ -623,6 +625,13 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -635,7 +644,7 @@
           
             <h1>
               
-              Introducción
+              Flow control
             </h1>
           
 
@@ -645,81 +654,6 @@
 
 
 	
-
-<p><img src="/bash-notes/en/basics/1.introduction/images/bash-logo-web.png" alt="logo de Bash" /></p>
-
-<p><a href="https://www.gnu.org/software/bash/">La GNU Bourne-Again SHell</a> es una shell muy pupular ya que combina funcionalidades tanto para uso interactive y programático.</p>
-
-<h3 id="otras-shells">Otras shells</h3>
-
-<ul>
-<li><a href="https://en.wikipedia.org/wiki/C_shell">C shell - <code>csh</code></a></li>
-<li><a href="https://en.wikipedia.org/wiki/KornShell">KornShell - <code>ksh</code></a></li>
-<li><a href="https://en.wikipedia.org/wiki/Bourne_shell">Bourne shell - <code>sh</code></a></li>
-<li><a href="https://en.wikipedia.org/wiki/Z_shell">Z shell - <code>zsh</code></a> en combinación con <a href="https://ohmyz.sh/">Oh-my-zsh</a></li>
-<li><a href="https://en.wikipedia.org/wiki/Almquist_shell">Debian Almquist shell - <code>dash</code></a></li>
-</ul>
-
-<h2 id="qué-es-una-shell-entonces">¿Qué es una &lsquo;shell&rsquo; entonces?</h2>
-
-<p>Es un programa el cual recibe como entrada lo que se escribe en el teclado, y redirecciona dicha entrada hacia el sistema operativo. Fue la primera clase de interfaces de usuario usada en sistemas operativos.</p>
-
-<h2 id="qué-es-una-terminal-emulador">¿Qué es una &lsquo;terminal [emulador]&lsquo;?</h2>
-
-<p>Hoy en día, gran mayoria de los sistemas operativos proveen una Interfaz Gráfica de Usuario (GUI). Un emulador de terminal es un programa que hace posible la interaccion con una shell. Ejemplos de emuladores de terminal incluyen: gnome-terminal, terminator.</p>
-
-<h2 id="iniciar-bash">Iniciar bash</h2>
-
-<p>Asumiendo que estás en un sistema operativo que tiene una GUI, basta con abrir tu emulador de terminal favorito y escribit lo siguiente:</p>
-
-<pre><code class="language-bash">$ bash
-</code></pre>
-
-<p>Imprimir la versión de bash:</p>
-
-<pre><code class="language-bash">$ bash --version
-GNU bash, version 4.3.48(1)-release (x86_64-pc-linux-gnu)
-Copyright (C) 2013 Free Software Foundation, Inc.
-License GPLv3+: GNU GPL version 3 or later &lt;http://gnu.org/licenses/gpl.html&gt;
-
-This is free software; you are free to change and redistribute it.
-There is NO WARRANTY, to the extent permitted by law.
-</code></pre>
-
-<h2 id="modos-de-ejecución">Modos de ejecución</h2>
-
-<p>En bash se puede ya se  escribir y ejecutar los comandos inmediatamente (modo interactivo), o incluir los comandos en un archivo de texto y ejecutarlos en modo batch (tambien conocido como bash script).</p>
-
-<h3 id="modo-interactivo">Modo interactivo</h3>
-
-<p>Imprime el directorio actual:</p>
-
-<pre><code class="language-bash">$ pwd
-/home/vagrant
-</code></pre>
-
-<p>Lista los archivos y directorios en el directorio actual:</p>
-
-<pre><code class="language-bash">$ ls
-</code></pre>
-
-<h3 id="modo-no-interactivo-bash-script">Modo no-interactivo (bash script)</h3>
-
-<p>Crea un archivo de texto (llamado <code>myfile</code>) y escribe el siguiente contenido dentro:</p>
-
-<pre><code>pwd
-ls
-</code></pre>
-
-<p>Ejecuta el fichero con la lista de comandos usando bash</p>
-
-<pre><code class="language-bash">$ bash myfile 
-/home/vagrant
-myfile
-</code></pre>
-
-<p><img src="/bash-notes/en/basics/introduction/images/magic.gif?classes=shadow" alt="Magic" /></p>
-
 
 
 
@@ -775,23 +709,6 @@ myfile
             
                 
                     
-                    
-                
-                
-
-                    
-                    
-                    
-
-                    
-            
-        
-                    
-                        
-            
-            
-                
-                    
                         
                         
                     
@@ -950,6 +867,23 @@ myfile
             
         
                     
+                        
+            
+            
+                
+                    
+                    
+                
+                
+
+                    
+                    
+                    
+
+                    
+            
+        
+                    
             
         
                     
@@ -957,6 +891,9 @@ myfile
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -978,10 +915,10 @@ myfile
 	 
 	 
 		
-			<a class="nav nav-prev" href="/bash-notes/es/basics/" title="Conocimiento básico"> <i class="fa fa-chevron-left"></i></a>
+			<a class="nav nav-prev" href="/bash-notes/es/basics/10.flow-control/" title="Flow control"> <i class="fa fa-chevron-left"></i></a>
 		
 		
-			<a class="nav nav-next" href="/bash-notes/es/basics/2.io-redirection/" title="IO Redirection" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+			<a class="nav nav-next" href="/bash-notes/es/reference/" title="Lista de comandos" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
