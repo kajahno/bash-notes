@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>Credits :: Bash notes</title>
+    <title>Logic and Arithmetic :: Bash notes</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1576502767" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/en/credits/">
+  <body class="" data-url="/bash-notes/en/basics/11.logic-and-arithmetic/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -396,8 +396,8 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/11.logic-and-arithmetic/" title="Logic and Arithmetic" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/en/basics/11.logic-and-arithmetic/">
@@ -527,7 +527,7 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/credits/" selected>English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/11.logic-and-arithmetic/" selected>English</option>
                     
                   
               
@@ -541,7 +541,7 @@
                   
                     
                     
-                      <option id="es" value="https://kajahno.me/bash-notes/es/credits/">Español</option>
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/11.logic-and-arithmetic/">Español</option>
                     
                   
               
@@ -648,7 +648,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content//credits.en.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content/basics/11.logic-and-arithmetic/_index.en.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -663,6 +663,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -673,7 +675,13 @@
             
           
           
-            <a href='/bash-notes/en/'>Bash notes</a> > Credits
+            
+            
+          
+          
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Logic and Arithmetic
+          
+         
           
          
           
@@ -681,6 +689,35 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#arithmetic-expressions">Arithmetic expressions</a>
+<ul>
+<li><a href="#let-expression"><code>let</code> expression</a></li>
+<li><a href="#double-parenthesis">Double parenthesis</a></li>
+<li><a href="#dollar-sign-double-parenthesis">Dollar sign double parenthesis</a></li>
+</ul></li>
+<li><a href="#if-statement-with-arithmetic-expressions">if statement (with arithmetic expressions)</a></li>
+<li><a href="#if-statement-with-test-expressions">if statement (with test expressions)</a>
+<ul>
+<li><a href="#if-statement-with-single-square-brackets">if statement with single square brackets</a>
+<ul>
+<li><a href="#lexicographical-comparison">Lexicographical comparison</a></li>
+<li><a href="#numerical-comparison">Numerical comparison</a></li>
+</ul></li>
+<li><a href="#if-statement-with-double-square-brackets">if statement with double square brackets</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -693,7 +730,7 @@
           
             <h1>
               
-              Credits
+              Logic and Arithmetic
             </h1>
           
 
@@ -702,19 +739,240 @@
 
 
 
+	
 
-<h2 id="site-generator">Site generator</h2>
+<p>Logic and arithmetic operation can give our bash scripts more accuracy and robustness against different types of values</p>
+
+<h2 id="arithmetic-expressions">Arithmetic expressions</h2>
+
+<p>In bash to declare an integer is simply done with:</p>
+
+<pre><code class="language-shell">$ declare -i COUNTER=0
+</code></pre>
+
+<p>Since the variable <code>COUNTER</code> now is an integer, we can also do this:</p>
+
+<pre><code class="language-shell">$ COUNTER+=1
+$ echo $COUNTER
+1
+</code></pre>
+
+<h3 id="let-expression"><code>let</code> expression</h3>
+
+<p>The &lsquo;let&rsquo; expression in bash signals that the following expression will be arithmetic. By knowing this, we can re-write our previous counter like this:</p>
+
+<pre><code class="language-shell">$ let counter=10
+$ let counter+=1
+$ echo $counter
+11
+</code></pre>
+
+<p>Even though the expression <code>let counter+=1</code> worked, sometimes is good to keep things separated by space to improve readability. To achieve this, we&rsquo;d have to envelop the whole arithmetic expression in quotes:</p>
+
+<pre><code class="language-shell">$ let &quot;counter = $counter * 2&quot;
+$ echo $counter
+22
+</code></pre>
+
+<h3 id="double-parenthesis">Double parenthesis</h3>
+
+<p>Another way to accomplish a counter is to use double parenthesis:</p>
+
+<pre><code class="language-shell">$ (( counter += 10 ))
+$ echo $counter
+32
+</code></pre>
+
+<h3 id="dollar-sign-double-parenthesis">Dollar sign double parenthesis</h3>
+
+<p>Yet another way to do a counter is to use <code>$(( ))</code>. In this case the result of the operation will be returned immediately:</p>
+
+<pre><code class="language-shell">$ echo $(( counter += 10 ))
+42
+$ echo $counter
+42
+</code></pre>
+
+
+<div class="notices tip" ><p>You don&rsquo;t need dollar signs to reference the variables inside the arithmetic expression</p>
+</div>
+
+
+<h2 id="if-statement-with-arithmetic-expressions">if statement (with arithmetic expressions)</h2>
+
+<p>Using arithmetic expressions an if statement looks like this:</p>
+
+<pre><code class="language-bash">let var=200
+if (( var &lt; 200 ))
+then
+    echo &quot;value too low&quot;
+elif (( var &gt; 200 ))
+then
+    echo &quot;value too high&quot;
+else
+    echo &quot;value is right&quot;
+fi
+</code></pre>
+
+<p>Things to notice:</p>
 
 <ul>
-<li><a href="https://gohugo.io/">Hugo</a></li>
-<li><a href="https://themes.gohugo.io/hugo-theme-learn/">Hugo Theme Learn</a></li>
+<li>We are using the same arithmetic expression we saw earlier</li>
+<li>After <code>if</code> and <code>elif</code> we must include <code>then</code>, but this is not required for <code>else</code></li>
 </ul>
+
+<p>We can build expressions much more powerful than this though. Let&rsquo;s create a script <code>simpleif.bash</code> with the following content:</p>
+
+<pre><code class="language-bash">let number
+while true; do
+    read -p &quot;Guess the number? &quot; number
+    if (( number &lt; 200 )); then
+        echo &quot;too low, try again&quot;
+    elif (( number &gt; 200 )); then
+        echo &quot;too high, try again&quot;
+    fi
+
+    if (( number == 200 || CHEAT != 0 )); then
+        echo &quot;Yay, you guessed it&quot;
+        if (( CHEAT != 0 )); then
+            echo &quot;Actually, you're a cheater ^.^&quot;
+            exit 1
+        fi
+        exit 0
+    fi
+done
+</code></pre>
+
+<p>Now run the script:</p>
+
+<pre><code class="language-shell">$ CHEAT=1 bash simpleif.bash
+Guess the number? 200
+Yay, you guessed it
+Actually, you're a cheater ^.^
+</code></pre>
+
+<p>Things to point out:</p>
+
+<ul>
+<li>This expression <code>number == 200 || CHEAT != 0</code> is a logical OR, as provided in other programming languages.</li>
+</ul>
+
+<h2 id="if-statement-with-test-expressions">if statement (with test expressions)</h2>
+
+<h3 id="if-statement-with-single-square-brackets">if statement with single square brackets</h3>
+
+<p>Has the form <code>if [ expr ]</code></p>
+
+
+<div class="notices tip" ><p>The whitespaces around the brackets are absolutely necessary</p>
+</div>
+
+
+<p>There are many test expressions, which are listed in <a target="_blank" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_01.html">here</a></p>
+
+<p>For example if we wanted to know if a file exists, we can do it with:</p>
+
+<pre><code class="language-bash">file=&quot;testfile&quot;
+touch $file
+if [ -e $file ]; then
+    echo &quot;the file exists&quot;
+fi
+</code></pre>
+
+<p>Similarly, sometimes it&rsquo;s useful to check the negation of the test expression. For example, if we were to test if a file does not exist, we can do it with:</p>
+
+<pre><code class="language-bash">file=&quot;nonexistentfile&quot;
+if [ ! -e $file ]; then
+    echo &quot;the file does not exist&quot;
+fi
+</code></pre>
+
+<p>Another thing to point out is that there exist comparison operators in this notation, however they can be grouped into two categories:</p>
+
+<h4 id="lexicographical-comparison">Lexicographical comparison</h4>
+
+<p>It means that the strings get compared in character by character basis. These are: <code>==</code>, <code>&gt;</code>, and <code>&lt;</code>, for example:</p>
+
+<pre><code class="language-bash">str1=&quot;something1&quot;
+str2=&quot;something2&quot;
+if [ &quot;$str1&quot; &gt; &quot;$str2&quot; ]; then
+    echo &quot;'$str1' is lexicographically greater than '$str2'&quot;
+fi
+</code></pre>
+
+<p>That should give:</p>
+
+<pre><code class="language-shell">'something1' is lexicographically greater than 'something2'
+</code></pre>
+
+
+<div class="notices tip" ><p>It&rsquo;s always a good idea to envelop strings in double quotes, just in case they have spaces</p>
+</div>
+
+
+<h4 id="numerical-comparison">Numerical comparison</h4>
+
+<p>These are homogeneous to the arithmetic comparison operators, but now are more a sort of legacy support for backwards compatibility. They include: <code>-eq</code>, <code>-lt</code>, <code>-gt</code>, <code>-ge</code>, <code>-le</code>.</p>
+
+<p>For example:</p>
+
+<pre><code class="language-bash">num1=20
+num2=34
+if [ $num1 -le $num2 ]; then
+    echo &quot;'$num1' is less or equal than '$num2'&quot;
+fi
+</code></pre>
+
+<p>Which should print:</p>
+
+<pre><code class="language-shell">'20' is less or equal than '34'
+</code></pre>
+
+<p>For readability purposes, I do prefer to use the arithmetic notation when comparing arithmetic expressions, rather than using these operators.</p>
+
+<h3 id="if-statement-with-double-square-brackets">if statement with double square brackets</h3>
+
+<p>Has the form <code>if [[ expr ]]</code></p>
+
+
+<div class="notices tip" ><p>Again, the whitespaces around the brackets are absolutely necessary</p>
+</div>
+
+
+<p>This is a sort of more modern way of comparing in bash. Taken from the <a target="_blank" href="http://tldp.org/LDP/Bash-Beginners-Guide/html/sect_07_02.html">documentation</a>:</p>
+
+<blockquote>
+<p>Contrary to [, [[ prevents word splitting of variable values. So, if VAR=&ldquo;var with spaces&rdquo;, you do not need to double quote \$VAR in a test - eventhough using quotes remains a good habit. Also, [[ prevents pathname expansion, so literal strings with wildcards do not try to expand to filenames. Using [[, == and != interpret strings to the right as shell glob patterns to be matched against the value to the left, for instance: [[ &ldquo;value&rdquo; == val* ]]</p>
+</blockquote>
+
+<p>What that means is that using double brackets we can use powerful comparisons such as the following:</p>
+
+<pre><code class="language-bash">file1=something.txt
+if [[ &quot;$file1&quot; == *.txt ]]; then
+    echo &quot;The file specified has 'txt' extension&quot;
+fi
+</code></pre>
+
+<p>Another powerful use case is when we want to compare against regular expressions. For example:</p>
+
+<pre><code class="language-bash">str=&quot;the elephant in the room was not only real but just a toy.&quot;
+if [[ &quot;$str&quot; =~ ^t.*not.*toy.$ ]]; then
+    echo &quot;The regular expression pattern has matched&quot;
+fi
+</code></pre>
+
+
+<div class="notices tip" ><p>We do not need to use double quotes when using double brackets, however I think it&rsquo;s a good practice</p>
+</div>
+
+
+
+
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -747,8 +1005,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -764,6 +1020,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -941,6 +1200,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -959,6 +1219,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -998,8 +1261,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/bash-notes/en/basics/11.command-substitution/" title="Command substitution"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/bash-notes/en/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/bash-notes/en/reference/" title="Command reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1042,4 +1307,3 @@
 
   </body>
 </html>
-

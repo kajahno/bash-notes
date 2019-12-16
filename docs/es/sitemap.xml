@@ -185,6 +185,20 @@
   </url>
   
   <url>
+    <loc>https://kajahno.me/bash-notes/es/basics/11.logic-and-arithmetic/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/11.logic-and-arithmetic/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/11.logic-and-arithmetic/"
+                />
+  </url>
+  
+  <url>
     <loc>https://kajahno.me/bash-notes/es/categories/</loc>
     <xhtml:link
                 rel="alternate"
