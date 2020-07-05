@@ -9,7 +9,7 @@
 
     <link rel="icon" href="/bash-notes/images/favicon.png" type="image/png">
 
-    <title>Credits :: Bash notes</title>
+    <title>Functions :: Bash notes</title>
 
     
     <link href="/bash-notes/css/nucleus.css?1593977766" rel="stylesheet">
@@ -35,7 +35,7 @@
     </style>
     
   </head>
-  <body class="" data-url="/bash-notes/en/credits/">
+  <body class="" data-url="/bash-notes/en/basics/12.functions/">
     <nav id="sidebar" class="showVisitedLinks">
 
 
@@ -81,7 +81,7 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/" title="Basics" class="dd-item 
-        
+        parent
         
         
         ">
@@ -422,8 +422,8 @@
   
     
     <li data-nav-id="/bash-notes/en/basics/12.functions/" title="Functions" class="dd-item 
-        
-        
+        parent
+        active
         
         ">
       <a href="/bash-notes/en/basics/12.functions/">
@@ -553,7 +553,7 @@
                   
                     
                     
-                      <option id="en" value="https://kajahno.me/bash-notes/en/credits/" selected>English</option>
+                      <option id="en" value="https://kajahno.me/bash-notes/en/basics/12.functions/" selected>English</option>
                     
                   
               
@@ -567,7 +567,7 @@
                   
                     
                     
-                      <option id="es" value="https://kajahno.me/bash-notes/es/credits/">Español</option>
+                      <option id="es" value="https://kajahno.me/bash-notes/es/basics/12.functions/">Español</option>
                     
                   
               
@@ -674,7 +674,7 @@
                   
                   
                   <div id="top-github-link">
-                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content//credits.en.md" target="blank">
+                    <a class="github-link" title='Edit this page' href="https://github.com/kajahno/bash-notes/edit/master/content/basics/12.functions/_index.en.md" target="blank">
                       <i class="fas fa-code-branch"></i>
                       <span id="top-github-link-text">Edit this page</span>
                     </a>
@@ -689,6 +689,8 @@
                         </a>
                     </span>
                   
+                  <span id="toc-menu"><i class="fas fa-list-alt"></i></span>
+                  
                   <span class="links">
                  
                  
@@ -699,7 +701,13 @@
             
           
           
-            <a href='/bash-notes/en/'>Bash notes</a> > Credits
+            
+            
+          
+          
+            <a href='/bash-notes/en/'>Bash notes</a> > <a href='/bash-notes/en/basics/'>Basics</a> > Functions
+          
+         
           
          
           
@@ -707,6 +715,30 @@
                  
                   </span>
                 </div>
+                
+                    <div class="progress">
+    <div class="wrapper">
+<nav id="TableOfContents">
+<ul>
+<li>
+<ul>
+<li><a href="#function-definition">Function definition</a>
+<ul>
+<li><a href="#no-optional-parenthesis-at-the-end">No optional parenthesis at the end</a></li>
+<li><a href="#no-word-function-but-implicit-with-parenthesis">No word &lsquo;function&rsquo; but implicit with parenthesis</a></li>
+</ul></li>
+<li><a href="#grouping-blocks-of-a-function">Grouping blocks of a function</a>
+<ul>
+<li><a href="#run-function-in-a-subshell">Run function in a subshell</a></li>
+<li><a href="#run-only-arithmetic-expressions">Run only arithmetic expressions</a></li>
+</ul></li>
+<li><a href="#function-parameters">Function parameters</a></li>
+</ul></li>
+</ul>
+</nav>
+    </div>
+</div>
+
                 
               </div>
             </div>
@@ -719,7 +751,7 @@
           
             <h1>
               
-              Credits
+              Functions
             </h1>
           
 
@@ -728,19 +760,121 @@
 
 
 
+	
 
-<h2 id="site-generator">Site generator</h2>
+<p>Functions provide with the ability of reuse code and more importantly to follow the DRY principle: Don&rsquo;t Repeat Yourself.</p>
 
-<ul>
-<li><a href="https://gohugo.io/">Hugo</a></li>
-<li><a href="https://themes.gohugo.io/hugo-theme-learn/">Hugo Theme Learn</a></li>
-</ul>
+<h2 id="function-definition">Function definition</h2>
+
+<p>A function can be defined as follows:</p>
+
+<pre><code class="language-bash">function myfunc () {
+    echo &quot;Hey, there!&quot;
+}
+</code></pre>
+
+<p>Then to invoke it as if it were a bash command or program, just run it:</p>
+
+<pre><code class="language-shell">$ myfunc
+Hey, there!
+</code></pre>
+
+<p>There are alternative syntaxes to declare functions. All of the following are accomplishing the same:</p>
+
+<h3 id="no-optional-parenthesis-at-the-end">No optional parenthesis at the end</h3>
+
+<pre><code class="language-bash">function myfunc {
+    echo &quot;Hey, there!&quot;
+}
+</code></pre>
+
+<h3 id="no-word-function-but-implicit-with-parenthesis">No word &lsquo;function&rsquo; but implicit with parenthesis</h3>
+
+<pre><code class="language-bash">myfunc() {
+    echo &quot;Hey, there!&quot;
+}
+</code></pre>
+
+<h2 id="grouping-blocks-of-a-function">Grouping blocks of a function</h2>
+
+<p>Even though normally we&rsquo;d want to run a function as part of the main shell. Sometimes it&rsquo;s useful not to do so. Let&rsquo;s have a look at the following examples.</p>
+
+<h3 id="run-function-in-a-subshell">Run function in a subshell</h3>
+
+<pre><code class="language-bash">function mysubshellfunc() (
+    echo &quot;Hey, I'm running from within a subshelll&quot;
+)
+</code></pre>
+
+<p>The implication of this is that the variables that can be accessed will be limited.</p>
+
+
+<div class="notices tip" ><p>It&rsquo;s recommended to previously export variables when invoking a subshell</p>
+</div>
+
+
+<h3 id="run-only-arithmetic-expressions">Run only arithmetic expressions</h3>
+
+<pre><code class="language-bash">function myarithmeticfunction() ((
+    C+=1
+))
+</code></pre>
+
+<h2 id="function-parameters">Function parameters</h2>
+
+<p>For the duration of the function execution, the parameters beginning with dollar (e.g. $1, $2, &hellip; ) are re-defined to store the values passed when invoking the function. For example</p>
+
+<pre><code class="language-bash">function myfuncwithparams(){
+    echo &quot;You've specified $# params: $@. Let's print some of them: '$1', '$2'&quot;
+}
+myfuncwithparams &quot;one&quot;
+myfuncwithparams &quot;one&quot; 2 &quot;three and four&quot;
+</code></pre>
+
+<p>Of course, the output should be:</p>
+
+<pre><code class="language-shell">You've specified 1 params: one. Let's print some of them: 'one', ''
+You've specified 3 params: one 2 three and four. Let's print some of them
+: 'one', '2'
+</code></pre>
+
+<p>Also using some string substitutions we could make this a bit more smart:</p>
+
+<pre><code class="language-bash">function myfuncwithparams(){
+    msg=&quot;You've specified $# params: $@.&quot;
+    if (( $# &lt; 1 )); then
+        echo &quot;No params were specified :(&quot;
+    elif (( $# == 1 )); then
+        echo &quot;${msg/params/param} Let's print it: '$1'&quot;
+    else
+        echo &quot;${msg} Let's print some of them: '$1'. '$2'&quot;
+    fi
+}
+myfuncwithparams
+myfuncwithparams &quot;one&quot;
+myfuncwithparams &quot;one&quot; 2 &quot;three and four&quot;
+</code></pre>
+
+<p>Of course, the output should be:</p>
+
+<pre><code class="language-shell">No params were specified :(
+You've specified 1 param: one. Let's print it: 'one'
+You've specified 3 params: one 2 three and four. Let's print some of them
+: 'one'. '2'
+</code></pre>
+
+
+<div class="notices tip" ><p>It&rsquo;s quite handy to do string substitutions like the oe above</p>
+</div>
+
+
+
+
 
 
 <footer class=" footline" >
 	
 </footer>
-
 
         
         </div> 
@@ -773,8 +907,6 @@
             
                 
                     
-                        
-                        
                     
                 
                 
@@ -790,6 +922,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -983,6 +1118,7 @@
             
                 
                     
+                    
                 
                 
 
@@ -1001,6 +1137,9 @@
             
             
                 
+                    
+                        
+                        
                     
                 
                 
@@ -1040,8 +1179,10 @@
 	 
 	 
 		
+			<a class="nav nav-prev" href="/bash-notes/en/basics/11.logic-and-arithmetic/" title="Logic and Arithmetic"> <i class="fa fa-chevron-left"></i></a>
 		
-			<a class="nav nav-next" href="/bash-notes/en/basics/" title="Basics" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
+		
+			<a class="nav nav-next" href="/bash-notes/en/reference/" title="Command reference" style="margin-right: 0px;"><i class="fa fa-chevron-right"></i></a>
 		
 	
     </div>
@@ -1084,4 +1225,3 @@
 
   </body>
 </html>
-

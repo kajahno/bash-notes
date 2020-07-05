@@ -203,6 +203,20 @@
   </url>
   
   <url>
+    <loc>https://kajahno.me/bash-notes/en/basics/12.functions/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://kajahno.me/bash-notes/es/basics/12.functions/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="en"
+                href="https://kajahno.me/bash-notes/en/basics/12.functions/"
+                />
+  </url>
+  
+  <url>
     <loc>https://kajahno.me/bash-notes/en/</loc>
     <xhtml:link
                 rel="alternate"
